@@ -3,5 +3,5 @@ function Controller() {
     this.model = new Model();
 };
 Controller.prototype.init = function () {
-    
-}
+
+};
