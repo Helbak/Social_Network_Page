@@ -1,23 +1,21 @@
 function Model() {
-this.stringStep1 = "<div class=\"InDev__body\">\n" +
-    "<div class=\"body__steps\">Step 1 of 3</div>\n" +
-    "<div class=\"body__title\">Create an Account</div>\n" +
-    "<div class=\"body__step1\">\n" +
-    "<span  class=\"step1 span\">Username*</span>\n" +
-    "<input class=\"step1 input\" type=\"text\">\n" +
-    "<span  class=\"step1 span\">Password*</span>\n" +
-    "<input class=\"step1 input\" type=\"text\">\n" +
-    "<span  class=\"step1 span\">Confirm*</span>\n" +
-    "<input class=\"step1 input\" type=\"text\">\n" +
-    "<span  class=\"step1 span\">E-mail*</span>\n" +
-    "<input class=\"step1 input\" type=\"text\">\n" +
-    "<span  class=\"step1 span\">Phone*</span>\n" +
-    "<input class=\"step1 input\" type=\"tel\">\n" +
-    "</div>\n" +
-    "<div class=\"body__next\">\n" +
-    "<button class=\"next\" id=\"nextButton\">Next</button>\n" +
-    "</div>\n" +
-    "</div> ";
+this.stringStep1 = " <div class=\"body__steps\">Step 1 of 3</div>\n" +
+    "        <div class=\"body__title\">Create an Account</div>\n" +
+    "        <div class=\"body__step1\">\n" +
+    "            <span  class=\"step1 span\">Username*</span>\n" +
+    "            <input class=\"step1 input\" type=\"text\">\n" +
+    "            <span  class=\"step1 span\">Password*</span>\n" +
+    "            <input class=\"step1 input\" type=\"text\">\n" +
+    "            <span  class=\"step1 span\">Confirm*</span>\n" +
+    "            <input class=\"step1 input\" type=\"text\">\n" +
+    "            <span  class=\"step1 span\">E-mail*</span>\n" +
+    "            <input class=\"step1 input\" type=\"text\">\n" +
+    "            <span  class=\"step1 span\">Phone*</span>\n" +
+    "            <input class=\"step1 input\" type=\"tel\">\n" +
+    "        </div>\n" +
+    "        <div class=\"body__next\">\n" +
+    "            <button class=\"next\" id=\"nextButton\">Next</button>\n" +
+    "        </div>";
 
     this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
         "\n" +
