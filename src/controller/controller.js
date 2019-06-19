@@ -55,3 +55,9 @@ username.addEventListener('click', function () {
         }.bind(this),
     false);
 };
+Controller.prototype.functionStep2 = function () {
+
+};
+Controller.prototype.functionStep3 = function () {
+
+};

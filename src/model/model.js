@@ -4,6 +4,13 @@ function Model() {
     this.confirm = "";
     this.phone = "";
     this.email = "";
+    this.name = "";
+    this.surname = "";
+    this.gender = "";
+    this.relation = "";
+
+
+
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "        <div class=\"body__title\">Create an Account</div>\n" +
     "        <div class=\"body__step1\">\n" +
@@ -136,6 +143,37 @@ Model.prototype.getEmail = function(){
 Model.prototype.setEmail = function(email){
     return this.email = email;
 };
+
+Model.prototype.getName = function(){
+    return this.name;
+};
+Model.prototype.setName = function(name){
+    return this.name = name;
+};
+
+Model.prototype.getSurname = function(){
+    return this.surname;
+};
+Model.prototype.setSurname = function(surname){
+    return this.surname = surname;
+};
+
+Model.prototype.getGender = function(){
+    return this.gender;
+};
+Model.prototype.setGender = function(gender){
+    return this.gender = gender;
+};
+
+Model.prototype.getRelation = function(){
+    return this.relation;
+};
+Model.prototype.setRelation = function(relation){
+    return this.relation = relation;
+};
+
+
+
 
 
 
