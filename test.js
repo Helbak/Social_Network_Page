@@ -1,6 +1,6 @@
 const testLogic = new Logic();
 describe(" first test of all tests (a+b)", () => {
-        it(`test value 2 and 5`, function () {
+        it(`test value 2 plus 5`, function () {
         const act = testLogic.aPlusB(2, 5);
         const exp = 7;
         assert.equal(act, exp);
@@ -290,6 +290,201 @@ describe("checkTypeOfSignInEmail tests of field EMAIL", () => {
     it(` one sign big latin and small latin`, function () {
         const act = testLogic.checkTypeOfSignInEmail("emAIL@EMail");
         const exp = true;
+        assert.equal(act, exp);
+    });
+});
+describe("checkFirstPlusInPhone tests of field PhoneNumber", () => {
+    it(`one sign +`, function () {
+        const act = testLogic.checkFirstPlusInPhone("+");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(` sign + before number`, function () {
+        const act = testLogic.checkFirstPlusInPhone("+12345");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(`first sign is number`, function () {
+        const act = testLogic.checkFirstPlusInPhone("123");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`first sign is =`, function () {
+        const act = testLogic.checkFirstPlusInPhone("=123");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`first sign is letter`, function () {
+        const act = testLogic.checkFirstPlusInPhone("a123");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`first sign is dot`, function () {
+        const act = testLogic.checkFirstPlusInPhone(".+123");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+});
+describe("clearPhoneNumberFromDots tests of field honeNumber", () => {
+    it(`one sign is empty "  +3812345678`, function () {
+        const act = testLogic.clearPhoneNumberFromDots("  +3812345678");
+        const exp = "+3812345678";
+        assert.equal(act, exp);
+    });
+    it(`number has () "(+38123)45678`, function () {
+        const act = testLogic.clearPhoneNumberFromDots("(+38123)45678");
+        const exp = "+3812345678";
+        assert.equal(act, exp);
+    });
+    it(`number has ()(( "  +38((12345678`, function () {
+        const act = testLogic.clearPhoneNumberFromDots("(+38((123)45678");
+        const exp = "+3812345678";
+        assert.equal(act, exp);
+    });
+    it(`number has empty "+ 3 8  123 45 6 78 `, function () {
+        const act = testLogic.clearPhoneNumberFromDots("+ 3 8  123 45 6 78 ");
+        const exp = "+3812345678";
+        assert.equal(act, exp);
+    });
+    it(`number has -- "-+-38-123-45-6-78`, function () {
+        const act = testLogic.clearPhoneNumberFromDots("-+-38-123-45-6-78");
+        const exp = "+3812345678";
+        assert.equal(act, exp);
+    });
+    it(`number has a , * "a+ 38,-123*45-6-78`, function () {
+        const act = testLogic.clearPhoneNumberFromDots("a+ 38,-123*45-6-78");
+        const exp = "a+38,123*45678";
+        assert.equal(act, exp);
+    });
+});
+describe("checkTypeSignInPhone tests of field PhoneNumber", () => {
+    it(`one sign is latin letter "  a+3812345678`, function () {
+        const act = testLogic.checkTypeSignInPhone("a+3812345678");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`one sign is russian letter "  +3812345678`, function () {
+        const act = testLogic.checkTypeSignInPhone("+381Ш2345678");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+        it(`number has plus and numbers +123456789012345`, function () {
+        const act = testLogic.checkTypeSignInPhone("+123456789012345");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(`number has  second plus +12+3456789012345`, function () {
+        const act = testLogic.checkTypeSignInPhone("+12+3456789012345");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`number has  > +12>3456789012345 `, function () {
+        const act = testLogic.checkTypeSignInPhone("+12>3456789012345");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`number has  : +12:3456789012345`, function () {
+        const act = testLogic.checkTypeSignInPhone("+12:3456789012345");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+});
+describe("checkCodeOfPhone tests of field PhoneNumber", () => {
+    it(`+380123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+380123456789");
+        const exp = 'ukr';
+        assert.equal(act, exp);
+    });
+    it(`+381123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+381123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+370123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+370123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+480123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+480123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+972123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+380123456789");
+        const exp = 'isr';
+        assert.equal(act, exp);
+    });
+    it(`+971123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+971123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+962123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+962123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+872123456789`, function () {
+        const act = testLogic.checkCodeOfPhone("+872123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+11234567890`, function () {
+        const act = testLogic.checkCodeOfPhone("+11234567890");
+        const exp = 'usa';
+        assert.equal(act, exp);
+    });
+    it(`+01234567890`, function () {
+        const act = testLogic.checkCodeOfPhone("+01234567890");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+});
+describe("checkAmountOfSignInPhone tests of field PhoneNumber", () => {
+    it(`+380123456789`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+380123456789");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(`+3801234567890`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+3801234567890");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+38012345678`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+38012345678");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+972123456789`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+972123456789");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(`+9721234567890`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+9721234567890");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+97212345678`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+97212345678");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+11234567890`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+11234567890");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+    it(`+1123456789`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+1123456789");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+    it(`+112345678901`, function () {
+        const act = testLogic.checkAmountOfSignInPhone("+112345678901");
+        const exp = false;
         assert.equal(act, exp);
     });
 });
