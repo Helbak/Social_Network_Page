@@ -22,26 +22,26 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "            <button class=\"next\" id=\"nextButton\">Next</button>\n" +
     "        </div>";
 
-    this.stringStep2 = "<div class=\"body__steps\">Step 2 of 3</div>-->\n" +
+    this.stringStep2 = "<div class=\"body__steps\">Step 2 of 3</div>\n" +
         "<div class=\"body__title\">Create an Account</div>\n" +
         "<div class=\"body__step1\">\n" +
         "    <span class=\"step1 span\">Name*</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"name\">\n" +
         "    <span class=\"step1 span\">Surname</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"surname\">\n" +
-        "\n" +
-        "\n" +
         "    <span class=\"step1 span\">Gender</span>\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"gender\" list=\"l2\">\n" +
-        "    <datalist id=\"l2\">\n" +
+        "    <input class=\"step1 input\" type=\"text\" id=\"gender\" list=\"l3\">\n" +
+        "    <datalist id=\"l3\">\n" +
         "        <option>0 - male</option>\n" +
         "        <option>1 - female</option>\n" +
         "    </datalist>\n" +
-        "\n" +
-        "\n" +
         "    <span class=\"step1 span\">Relationship status</span>\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"relation\">\n" +
-        "\n" +
+        "     <input class=\"step1 input\" type=\"text\" id=\"relation\" list=\"l4\">\n" +
+        "    <datalist id=\"l4\">\n" +
+        "        <option>0 - single</option>\n" +
+        "        <option>1 - married</option>\n" +
+        "        <option>2 - divorced</option>\n" +
+        "    </datalist>\n" +
         "</div>\n" +
         "<div class=\"body__back\">\n" +
         "    <button class=\"back\" id=\"backButtonFrom2\">Back</button>\n" +
