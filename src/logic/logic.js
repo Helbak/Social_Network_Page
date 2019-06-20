@@ -1,52 +1,60 @@
 function Logic() {
 
 };
-Logic.prototype.aPlusB = function (a,b) {
-    return a+b;
-};
-Logic.prototype.checkAmountOfSignInUsername = function(username){
-    return "test";
-};
-Logic.prototype.checkTypeOfSignUsername = function (username) {
-    return "test";
-};
-Logic.prototype.checkAmountOfSignInPassword = function (password) {
-    return "test";
-};
-Logic.prototype.checkTypeOfSignInPassword = function (password) {
-    return "test";
-};
-Logic.prototype.checkAmountOfSignInEmail = function (email) {
-    return "test";
-};
-Logic.prototype.checkTypeOfSignInEmail = function (email) {
-    return "test";
-};
-Logic.prototype.fullCheckPhoneNumber = function(phoneNumber){
-    const clearedPhoneNumber = this.clearPhoneNumberFromDots(phoneNumber);
-    if(this.checkFirstPlusInPhone(clearedPhoneNumber)===true && this.checkTypeSignInPhone(clearedPhoneNumber)===true && this.checkCodeOfPhone===true && this.checkAmountOfSignInPhone===true/* здесь перебрать все проверки номера*/){
+
+Logic.prototype.checkSignInLength = function(username){
+    if (username.length < 1 || username.length > 40) {
+        return false;
+    } else {
         return true;
     }
-    return false;
 };
-Logic.prototype.clearPhoneNumberFromDots = function (phoneNumber) {
+Logic.prototype.checkSignInValidation = function (username) {
+    if (/[a-zA-Z0-9!:,<>;@#$%^&*()\-_+=]/.test(username)) {
+        return true
+    } else {
+        return false;
+    }
+};
+Logic.prototype.checkPasswordLength = function (password) {
+    if (password.length < 6 || password.length > 30) {
+        return false;
+    } else if ( password.length >= 6 && password.length <= 8) {
+        return "Password is easy"
+    } else if ( password.length >= 9 && password.length <= 10) {
+        return "Password is middle"
+    } else if ( password.length >= 11 && password.length <= 40) {
+        return "Password is hard"
+    }
+};
+Logic.prototype.checkPasswordValidation = function (password) {
+    if(/(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z])^[^а-яА-Я]+$/.test(password)){
+        return true;
+    } else {
+        return false;
+    }
+};
 
+Logic.prototype.checkEmailValidation = function (email) {
+    if(/(^[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]{0,20})+(?:\.[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-zA-Z0-9]([-a-zA-Z0-9]{0,18}[a-zA-Z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/.test(email)){
+        return true;
+    } else {
+        return false;
+    }
+};
 
+Logic.prototype.checkPhoneNumber = function (phoneNumber) {
+    if(/^\(?([+1]{2})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{9})$/.test(phoneNumber)){
+        return true;
+    } else if (/^\(?([+]{1}[3]{1}[8]{1}[0]{1})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{6})$/.test(phoneNumber)){
+        return true;
+    } else if (/^\(?([+]{1}[9]{1}[7]{1}[2]{1})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{6})$/.test(phoneNumber)) {
+        return true;
+    } else {
+        return false;
+    }
+};
 
-    return "test";
-};
-Logic.prototype.checkFirstPlusInPhone = function (clearedPhoneNumber) {
-    return "test";
-};
-Logic.prototype.checkTypeSignInPhone = function (clearedPhoneNumber) {
-    return "test";
-};
-Logic.prototype.checkCodeOfPhone = function (clearedPhoneNumber) {
-    return "test";
-};
-Logic.prototype.checkAmountOfSignInPhone = function (clearedPhoneNumber) {
-    return "test";
-};
 
 
 
