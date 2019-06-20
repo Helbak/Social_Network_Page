@@ -8,21 +8,23 @@ function Model() {
     this.surname = "";
     this.gender = "";
     this.relation = "";
-
+this.experience = "";
+this.progrLang = "";
+this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea','nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
 
 
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "        <div class=\"body__title\">Create an Account</div>\n" +
     "        <div class=\"body__step1\">\n" +
-    "            <span  class=\"step1 span\">Username*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"usernameArea\">Username*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"username\">\n" +
-    "            <span  class=\"step1 span\">Password*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"passwordArea\">Password*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"password\">\n" +
-    "            <span  class=\"step1 span\">Confirm*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"confirmArea\">Confirm*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"confirm\">\n" +
-    "            <span  class=\"step1 span\">E-mail*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"emailArea\">E-mail*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"email\">\n" +
-    "            <span  class=\"step1 span\">Phone*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"phoneArea\">Phone*</span>\n" +
     "            <input class=\"step1 input\" type=\"tel\" id = \"phone\">\n" +
     "        </div>\n" +
     "        <div class=\"body__next\">\n" +
@@ -32,17 +34,17 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     this.stringStep2 = "<div class=\"body__steps\">Step 2 of 3</div>\n" +
         "<div class=\"body__title\">Create an Account</div>\n" +
         "<div class=\"body__step1\">\n" +
-        "    <span class=\"step1 span\">Name*</span>\n" +
+        "    <span class=\"step1 span\" id='nameArea'>Name*</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"name\">\n" +
-        "    <span class=\"step1 span\">Surname</span>\n" +
+        "    <span class=\"step1 span\" id='surnameArea'>Surname</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"surname\">\n" +
-        "    <span class=\"step1 span\">Gender</span>\n" +
+        "    <span class=\"step1 span\" id='genderArea'>Gender</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"gender\" list=\"l3\">\n" +
         "    <datalist id=\"l3\">\n" +
         "        <option>0 - male</option>\n" +
         "        <option>1 - female</option>\n" +
         "    </datalist>\n" +
-        "    <span class=\"step1 span\">Relationship status</span>\n" +
+        "    <span class=\"step1 span\" id='relationArea'>Relationship status</span>\n" +
         "     <input class=\"step1 input\" type=\"text\" id=\"relation\" list=\"l4\">\n" +
         "    <datalist id=\"l4\">\n" +
         "        <option>0 - single</option>\n" +
@@ -57,48 +59,48 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
         "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
         "</div>";
 
-        this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
-        "\n" +
-        "    <div class=\"body__step1\">\n" +
-        "        <span  class=\"step1 span\">Programming languages</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"prLang\" list=\"l1\">\n" +
-        "        <datalist id=\"l1\">\n" +
-        "\n" +
-        "            <option>Java</option>\n" +
-        "            <option>C</option>\n" +
-        "            <option>C++</option>\n" +
-        "            <option>C#</option>\n" +
-        "            <option>JavaScript</option>\n" +
-        "            <option>PHP</option>\n" +
-        "            <option>Ruby</option>\n" +
-        "            <option>Matlab</option>\n" +
-        "            <option>Python</option>\n" +
-        "            <option>R</option>\n" +
-        "            <option>Swift</option>\n" +
-        "        </datalist>\n" +
-        "        <span  class=\"step1 span\">Work experience</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"prLang\" list=\"l2\">\n" +
-        "        <datalist id=\"l2\">\n" +
-        "            <option>0 - 1 years</option>\n" +
-        "            <option>1 - 2 years</option>\n" +
-        "            <option>2 - 3 years#</option>\n" +
-        "            <option>3 - 4 years</option>\n" +
-        "            <option>4 and more years</option>\n" +
-        "        </datalist>\n" +
-        "        <div class=\"step1 checkbox\">\n" +
-        "            <input type=\"checkbox\">\n" +
-        "            <label for=\"checkbox\">Accept the <a href=\"http://mock.html\">registration</a> rules</label>\n" +
-        "        </div>\n" +
-        "\n" +
-        "\n" +
-        "\n" +
-        "    <div class=\"body__back\">\n" +
-        "        <button class=\"back\" id=\"backButton\">Back</button>\n" +
-        "    </div>\n" +
-        "        <div class=\"body__register\">\n" +
-        "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
-        "        </div>\n" +
-        "    </div>";
+        this.stringStep3 = " <div class=\"body__steps\">Step 3 of 3</div>\n" +
+            "\n" +
+            "    <div class=\"body__step1\">\n" +
+            "        <span  class=\"step1 span\" id='progrLangArea'>Programming languages</span>\n" +
+            "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" list=\"l1\">\n" +
+            "        <datalist id=\"l1\">\n" +
+            "\n" +
+            "            <option>Java</option>\n" +
+            "            <option>C</option>\n" +
+            "            <option>C++</option>\n" +
+            "            <option>C#</option>\n" +
+            "            <option>JavaScript</option>\n" +
+            "            <option>PHP</option>\n" +
+            "            <option>Ruby</option>\n" +
+            "            <option>Matlab</option>\n" +
+            "            <option>Python</option>\n" +
+            "            <option>R</option>\n" +
+            "            <option>Swift</option>\n" +
+            "        </datalist>\n" +
+            "        <span  class=\"step1 span\" id='experienceArea'>Work experience</span>\n" +
+            "        <input class=\"step1 input\" type=\"text\" id=\"experience\" list=\"l2\">\n" +
+            "        <datalist id=\"l2\">\n" +
+            "            <option>0 - 1 years</option>\n" +
+            "            <option>1 - 2 years</option>\n" +
+            "            <option>2 - 3 years#</option>\n" +
+            "            <option>3 - 4 years</option>\n" +
+            "            <option>4 and more years</option>\n" +
+            "        </datalist>\n" +
+            "        <div class=\"step1 checkbox\">\n" +
+            "            <input type=\"checkbox\">\n" +
+            "            <label for=\"checkbox\">Accept the <a href=\"http://www.yandex.ru\">registration</a> rules</label>\n" +
+            "        </div>\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    <div class=\"body__back\">\n" +
+            "        <button class=\"back\" id=\"backButtonFromStep3\">Back</button>\n" +
+            "    </div>\n" +
+            "        <div class=\"body__register\">\n" +
+            "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
+            "        </div>\n" +
+            "    </div>";
 };
 Model.prototype.getStep1 = function(){
     return this.stringStep1;
@@ -171,8 +173,21 @@ Model.prototype.getRelation = function(){
 Model.prototype.setRelation = function(relation){
     return this.relation = relation;
 };
-
-
+Model.prototype.getProgrLang = function(){
+    return this.progrLang;
+};
+Model.prototype.setProgrLang = function(progrLang){
+    return this.progrLang = progrLang;
+};
+Model.prototype.getExperience = function(){
+    return this.experience;
+};
+Model.prototype.setExperience = function(experience){
+    return this.experience = experience;
+};
+Model.prototype.getArea = function(){
+    return this.area;
+};
 
 
 
