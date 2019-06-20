@@ -252,6 +252,7 @@ describe("checkTypeOfSignInEmail tests of field EMAIL", () => {
         const exp = false;
         assert.equal(act, exp);
     });
+
     it(' one sign KYRYLITSA after @', function () {
         const act = testLogic.checkEmailValidation("emaidl@ш.com");
         const exp = false;

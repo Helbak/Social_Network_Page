@@ -9,6 +9,7 @@ Logic.prototype.checkSignInLength = function(username){
         return true;
     }
 };
+
 Logic.prototype.checkSignInValidation = function (username) {
     if (/[a-zA-Z0-9!:,<>;@#$%^&*()\-_+=]/.test(username)) {
         return true
