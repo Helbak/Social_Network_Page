@@ -10,6 +10,9 @@ indev.innerHTML = this.model.getStep1();
 const username = document.getElementById("username");
 username.addEventListener('click', function () {
         this.model.setUsername(username.value);
+
+
+
     }.bind(this),
     false);
 
