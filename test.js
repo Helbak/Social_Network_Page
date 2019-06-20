@@ -325,7 +325,7 @@ describe("checkFirstPlusInPhone tests of field PhoneNumber", () => {
         assert.equal(act, exp);
     });
 });
-describe("clearPhoneNumberFromDots tests of field honeNumber", () => {
+describe("clearPhoneNumberFromDots tests of field phoneNumber", () => {
     it(`one sign is empty "  +3812345678`, function () {
         const act = testLogic.clearPhoneNumberFromDots("  +3812345678");
         const exp = "+3812345678";

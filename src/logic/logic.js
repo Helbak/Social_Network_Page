@@ -23,13 +23,16 @@ Logic.prototype.checkTypeOfSignInEmail = function (email) {
     return "test";
 };
 Logic.prototype.fullCheckPhoneNumber = function(phoneNumber){
-    const clearedPhoneNumber = this.clearPhoneNumberFromDots();
+    const clearedPhoneNumber = this.clearPhoneNumberFromDots(phoneNumber);
     if(this.checkFirstPlusInPhone(clearedPhoneNumber)===true && this.checkTypeSignInPhone(clearedPhoneNumber)===true && this.checkCodeOfPhone===true && this.checkAmountOfSignInPhone===true/* здесь перебрать все проверки номера*/){
         return true;
     }
     return false;
 };
-Logic.prototype.clearPhoneNumberFromDots = function (clearedPhoneNumber) {
+Logic.prototype.clearPhoneNumberFromDots = function (phoneNumber) {
+
+
+
     return "test";
 };
 Logic.prototype.checkFirstPlusInPhone = function (clearedPhoneNumber) {

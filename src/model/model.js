@@ -93,7 +93,7 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
         "\n" +
         "\n" +
         "    <div class=\"body__back\">\n" +
-        "        <button class=\"back\" id=\"backButton\">Back</button>\n" +
+        "        <button class=\"back\" id=\"backButtonFromStep3\">Back</button>\n" +
         "    </div>\n" +
         "        <div class=\"body__register\">\n" +
         "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
