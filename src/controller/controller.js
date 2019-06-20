@@ -10,35 +10,35 @@ Controller.prototype.init = function () {
     const username = document.getElementById("username");
     username.addEventListener('keydown', function () {
             this.model.setUsername(username.value);
-
+            this.redDrawer("usernameArea");
         }.bind(this),
         false);
 
     const password = document.getElementById("password");
     password.addEventListener('keydown', function () {
             this.model.setPassword(password.value);
-            console.log("username =  "+this.model.getPassword());
+            this.redDrawer("passwordArea");
         }.bind(this),
         false);
 
     const confirm = document.getElementById("confirm");
     confirm.addEventListener('keydown', function () {
             this.model.setConfirm(confirm.value);
-
+            this.redDrawer("confirmArea");
         }.bind(this),
         false);
 
     const email = document.getElementById("email");
     email.addEventListener('keydown', function () {
             this.model.setEmail(email.value);
-
+            this.redDrawer("emailArea");
         }.bind(this),
         false);
 
     const phone = document.getElementById("phone");
     phone.addEventListener('keydown', function () {
             this.model.setPhone(phone.value);
-
+            this.redDrawer("phoneArea");
         }.bind(this),
         false);
     const nextFromStep1 = document.getElementById("nextButton");
@@ -53,13 +53,14 @@ Controller.prototype.functionStep2 = function () {
     const name = document.getElementById('name');
     name.addEventListener('keydown', function () {
             this.model.setName(name.value);
-            console.log("username =  "+this.model.getName());
+            this.redDrawer("nameArea");
+
         }.bind(this),
         false);
     const surname = document.getElementById('surname');
     surname.addEventListener('keydown', function () {
             this.model.setSurname(surname.value);
-
+            this.redDrawer("surnameArea");
         }.bind(this),
         false);
     const gender = document.getElementById('gender');
@@ -112,5 +113,26 @@ Controller.prototype.functionStep3 = function () {
             this.init();
         }.bind(this),
         false);
+};
+Controller.prototype.redDrawer = function (id) {
+    const arrayArea= this.model.getArea();
+   for(let i=0; i<arrayArea.length; i++){
+
+       if(id ===arrayArea[i]){
+           let area = document.getElementById(arrayArea[i]);
+           area.style ="color: rgba(254, 27, 46, 0.95);";
+
+       }
+       if(id !==arrayArea[i] ){
+           let area = document.getElementById(arrayArea[i]);
+           area.style ="color: rgba(9, 1, 1, 0.95);";
+       }
+   }
 
 };
+
+// function setStyle(node) {
+//     let nextNode = document.getElementById(stringID(node.el));
+//     nextNode.style = "position: absolute; "
+//
+// };

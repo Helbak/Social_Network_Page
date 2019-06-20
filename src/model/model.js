@@ -10,6 +10,7 @@ function Model() {
     this.relation = "";
 this.experience = "";
 this.progrLang = "";
+this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea','nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
 
 
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
@@ -184,7 +185,9 @@ Model.prototype.getExperience = function(){
 Model.prototype.setExperience = function(experience){
     return this.experience = experience;
 };
-
+Model.prototype.getArea = function(){
+    return this.area;
+};
 
 
 
