@@ -8,21 +8,22 @@ function Model() {
     this.surname = "";
     this.gender = "";
     this.relation = "";
-
+this.experience = "";
+this.progrLang = "";
 
 
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "        <div class=\"body__title\">Create an Account</div>\n" +
     "        <div class=\"body__step1\">\n" +
-    "            <span  class=\"step1 span\">Username*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"usernameArea\">Username*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"username\">\n" +
-    "            <span  class=\"step1 span\">Password*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"passwordArea\">Password*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"password\">\n" +
-    "            <span  class=\"step1 span\">Confirm*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"confirmArea\">Confirm*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"confirm\">\n" +
-    "            <span  class=\"step1 span\">E-mail*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"emailArea\">E-mail*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"email\">\n" +
-    "            <span  class=\"step1 span\">Phone*</span>\n" +
+    "            <span  class=\"step1 span\" id = \"phoneArea\">Phone*</span>\n" +
     "            <input class=\"step1 input\" type=\"tel\" id = \"phone\">\n" +
     "        </div>\n" +
     "        <div class=\"body__next\">\n" +
@@ -61,7 +62,7 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
         "\n" +
         "    <div class=\"body__step1\">\n" +
         "        <span  class=\"step1 span\">Programming languages</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"prLang\" list=\"l1\">\n" +
+        "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" list=\"l1\">\n" +
         "        <datalist id=\"l1\">\n" +
         "\n" +
         "            <option>Java</option>\n" +
@@ -77,7 +78,7 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
         "            <option>Swift</option>\n" +
         "        </datalist>\n" +
         "        <span  class=\"step1 span\">Work experience</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"prLang\" list=\"l2\">\n" +
+        "        <input class=\"step1 input\" type=\"text\" id=\"experience\" list=\"l2\">\n" +
         "        <datalist id=\"l2\">\n" +
         "            <option>0 - 1 years</option>\n" +
         "            <option>1 - 2 years</option>\n" +
@@ -171,7 +172,18 @@ Model.prototype.getRelation = function(){
 Model.prototype.setRelation = function(relation){
     return this.relation = relation;
 };
-
+Model.prototype.getProgrLang = function(){
+    return this.progrLang;
+};
+Model.prototype.setProgrLang = function(progrLang){
+    return this.progrLang = progrLang;
+};
+Model.prototype.getExperience = function(){
+    return this.experience;
+};
+Model.prototype.setExperience = function(experience){
+    return this.experience = experience;
+};
 
 
 
