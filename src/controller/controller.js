@@ -8,35 +8,37 @@ Controller.prototype.init = function () {
     indev.innerHTML = this.model.getStep1();
 
     const username = document.getElementById("username");
-    username.addEventListener('keydown', function () {
-            this.model.setUsername(username.value);
-            this.redDrawer("usernameArea");
+    username.addEventListener('keyup', function () {
+        if(this.logic.checkUsernameLength(username.value)===true && this.logic.checkUsernameValidation(username.value)===true){
+             this.redDrawer("usernameArea",'black');}
+            if(this.logic.checkUsernameLength(username.value)!==true || this.logic.checkUsernameValidation(username.value)!==true){
+                this.redDrawer("usernameArea",'red');}
         }.bind(this),
         false);
 
     const password = document.getElementById("password");
-    password.addEventListener('keydown', function () {
+    password.addEventListener('keyup', function () {
             this.model.setPassword(password.value);
             this.redDrawer("passwordArea");
         }.bind(this),
         false);
 
     const confirm = document.getElementById("confirm");
-    confirm.addEventListener('keydown', function () {
+    confirm.addEventListener('keyup', function () {
             this.model.setConfirm(confirm.value);
             this.redDrawer("confirmArea");
         }.bind(this),
         false);
 
     const email = document.getElementById("email");
-    email.addEventListener('keydown', function () {
+    email.addEventListener('keyup', function () {
             this.model.setEmail(email.value);
             this.redDrawer("emailArea");
         }.bind(this),
         false);
 
     const phone = document.getElementById("phone");
-    phone.addEventListener('keydown', function () {
+    phone.addEventListener('keyup', function () {
             this.model.setPhone(phone.value);
             this.redDrawer("phoneArea");
         }.bind(this),
@@ -51,14 +53,14 @@ Controller.prototype.functionStep2 = function () {
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep2();
     const name = document.getElementById('name');
-    name.addEventListener('keydown', function () {
+    name.addEventListener('keyup', function () {
             this.model.setName(name.value);
             this.redDrawer("nameArea");
 
         }.bind(this),
         false);
     const surname = document.getElementById('surname');
-    surname.addEventListener('keydown', function () {
+    surname.addEventListener('keyup', function () {
             this.model.setSurname(surname.value);
             this.redDrawer("surnameArea");
         }.bind(this),
@@ -114,27 +116,30 @@ Controller.prototype.functionStep3 = function () {
         }.bind(this),
         false);
 };
-Controller.prototype.redDrawer = function (id) {
-    const arrayArea= this.model.getArea();
-   for(let i=0; i<arrayArea.length; i++){
-
-       if(id ===arrayArea[i]){
-           let area = document.getElementById(arrayArea[i]);
-           area.style ="color: rgba(254, 27, 46, 0.95);";
-
-       }
-       if(id !==arrayArea[i] ){
-           let area = document.getElementById(arrayArea[i]);
-           area.style ="color: rgba(9, 1, 1, 0.95);";
-       }
-   }
-
-};
-
-
-
-// function setStyle(node) {
-//     let nextNode = document.getElementById(stringID(node.el));
-//     nextNode.style = "position: absolute; "
+// Controller.prototype.redDrawer = function (id) {
+//     const arrayArea= this.model.getArea();
+//    for(let i=0; i<arrayArea.length; i++){
+//
+//        if(id ===arrayArea[i]){
+//            let area = document.getElementById(arrayArea[i]);
+//            area.style ="color: rgba(254, 27, 46, 0.95);";
+//
+//        }
+//        if(id !==arrayArea[i] ){
+//            let area = document.getElementById(arrayArea[i]);
+//            area.style ="color: rgba(9, 1, 1, 0.95);";
+//        }
+//    }
 //
 // };
+
+Controller.prototype.redDrawer = function (id,color) {
+console.log(" Controller.prototype.redDrawer ");
+    let area = document.getElementById(id);
+if (color==='black'){
+    area.style ="color: rgba(9, 1, 1, 0.95);";
+}
+if (color==='red'){
+    area.style ="color: rgba(254, 27, 46, 0.95)";
+}
+};

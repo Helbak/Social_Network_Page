@@ -84,6 +84,11 @@ describe("checkTypeOfSignUsername tests of field USERNAME", () => {
         const exp = true;
         assert.equal(act, exp);
     });
+    it('USERNAME is "fffffшшш" ', function () {
+        const act = testLogic.checkUsernameValidation("fffffшшш");
+        const exp = false;
+        assert.equal(act, exp);
+    });
 });
 describe("checkAmountOfSignInPassword tests of field PASSWORD", () => {
     it('one sign in PASSWORD', function () {
