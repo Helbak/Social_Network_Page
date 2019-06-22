@@ -2,7 +2,7 @@ function Logic() {
 
 };
 
-Logic.prototype.checkSignInLength = function(username){
+Logic.prototype.checkUsernameLength = function(username){
     if (username.length < 1 || username.length > 40) {
         return false;
     } else {
@@ -10,7 +10,7 @@ Logic.prototype.checkSignInLength = function(username){
     }
 };
 
-Logic.prototype.checkSignInValidation = function (username) {
+Logic.prototype.checkUsernameValidation = function (username) {
     if (/[a-zA-Z0-9!:,<>;@#$%^&*()\-_+=]/.test(username)) {
         return true
     } else {
@@ -28,8 +28,17 @@ Logic.prototype.checkPasswordLength = function (password) {
         return "Password is hard"
     }
 };
+
 Logic.prototype.checkPasswordValidation = function (password) {
     if(/(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z])^[^а-яА-Я]+$/.test(password)){
+        return true;
+    } else {
+        return false;
+    }
+};
+
+Logic.prototype.checkConfirm = function (stringA, stringB){
+    if (stringA === stringB) {
         return true;
     } else {
         return false;
@@ -44,8 +53,8 @@ Logic.prototype.checkEmailValidation = function (email) {
     }
 };
 
-Logic.prototype.checkPhoneNumber = function (phoneNumber) {
-    if(/^\(?([+1]{2})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{9})$/.test(phoneNumber)){
+Logic.prototype.checkPhoneNumberValidation = function (phoneNumber) {
+    if(/^\(?([+1]{2})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{3})[-.()]?([0-9]{6})$/.test(phoneNumber)){
         return true;
     } else if (/^\(?([+]{1}[3]{1}[8]{1}[0]{1})\)?[-.()]?([0-9]{3})[-.()]?([0-9]{6})$/.test(phoneNumber)){
         return true;
@@ -57,6 +66,13 @@ Logic.prototype.checkPhoneNumber = function (phoneNumber) {
 };
 
 
+Logic.prototype.checkNameValidation = function (name) {
+    if (/^[a-zA-Z]+$/.test(name)){
+        return true;
+    } else {
+        return false;
+    }
+};
 
 
 

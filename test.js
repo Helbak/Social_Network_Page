@@ -2,32 +2,32 @@ const testLogic = new Logic();
 
 describe("checkAmountOfSignInUsername tests of field USERNAME", () => {
     it('USERNAME is empty', function () {
-        const act = testLogic.checkSignInLength("");
+        const act = testLogic.checkUsernameLength("");
         const exp = false;
         assert.equal(act, exp);
     });
     it('41 latin letter sign in USERNAME ', function () {
-        const act = testLogic.checkSignInLength("qwertyuiopqwertyuiopqwertyuiopqwertyuiopq");
+        const act = testLogic.checkUsernameLength("qwertyuiopqwertyuiopqwertyuiopqwertyuiopq");
         const exp = false;
         assert.equal(act, exp);
     });
     it('1 latin letter in USERNAME ', function () {
-        const act = testLogic.checkSignInLength("r");
+        const act = testLogic.checkUsernameLength("r");
         const exp = true;
         assert.equal(act, exp);
     });
     it('5 latin letter in USERNAME ', function () {
-        const act = testLogic.checkSignInValidation("radio");
+        const act = testLogic.checkUsernameValidation("radio");
         const exp = true;
         assert.equal(act, exp);
     });
     it('1 number in USERNAME ', function () {
-        const act = testLogic.checkSignInLength("1");
+        const act = testLogic.checkUsernameLength("1");
         const exp = true;
         assert.equal(act, exp);
     });
     it('41 numbers in USERNAME ', function () {
-        const act = testLogic.checkSignInLength("12345678901234567890123456789012345678901");
+        const act = testLogic.checkUsernameLength("12345678901234567890123456789012345678901");
         const exp = false;
         assert.equal(act, exp);
     });
@@ -35,52 +35,52 @@ describe("checkAmountOfSignInUsername tests of field USERNAME", () => {
 
 describe("checkTypeOfSignUsername tests of field USERNAME", () => {
     it('USERNAME is 1', function () {
-        const act = testLogic.checkSignInValidation(1);
+        const act = testLogic.checkUsernameValidation(1);
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is : ', function () {
-        const act = testLogic.checkSignInValidation(":");
+        const act = testLogic.checkUsernameValidation(":");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is - ', function () {
-        const act = testLogic.checkSignInValidation("-");
+        const act = testLogic.checkUsernameValidation("-");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is , ', function () {
-        const act = testLogic.checkSignInValidation(",");
+        const act = testLogic.checkUsernameValidation(",");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is "ш" ', function () {
-        const act = testLogic.checkSignInValidation("ш");
+        const act = testLogic.checkUsernameValidation("ш");
         const exp = false;
         assert.equal(act, exp);
     });
     it('USERNAME is "Ш" ', function () {
-        const act = testLogic.checkSignInValidation("Ш");
+        const act = testLogic.checkUsernameValidation("Ш");
         const exp = false;
         assert.equal(act, exp);
     });
     it('USERNAME is "R" ', function () {
-        const act = testLogic.checkSignInValidation("R");
+        const act = testLogic.checkUsernameValidation("R");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is "r" ', function () {
-        const act = testLogic.checkSignInValidation("r");
+        const act = testLogic.checkUsernameValidation("r");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is "+" ', function () {
-        const act = testLogic.checkSignInValidation("+");
+        const act = testLogic.checkUsernameValidation("+");
         const exp = true;
         assert.equal(act, exp);
     });
     it('USERNAME is "=" ', function () {
-        const act = testLogic.checkSignInValidation("=");
+        const act = testLogic.checkUsernameValidation("=");
         const exp = true;
         assert.equal(act, exp);
     });
@@ -269,163 +269,191 @@ describe("checkTypeOfSignInEmail tests of field EMAIL", () => {
 
 describe("clearPhoneNumberFromDots tests of field honeNumber", () => {
     it('one sign is empty "  +3812345678', function () {
-        const act = testLogic.checkPhoneNumber("  +3812345678");
+        const act = testLogic.checkPhoneNumberValidation("  +3812345678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has () "(+38123)45678', function () {
-        const act = testLogic.checkPhoneNumber("(+38123)45678");
+        const act = testLogic.checkPhoneNumberValidation("(+38123)45678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has ()(( "  +38((12345678', function () {
-        const act = testLogic.checkPhoneNumber("(+38((123)45678");
+        const act = testLogic.checkPhoneNumberValidation("(+38((123)45678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has empty "+ 3 8  123 45 6 78 ', function () {
-        const act = testLogic.checkPhoneNumber("+ 3 8  123 45 6 78 ");
+        const act = testLogic.checkPhoneNumberValidation("+ 3 8  123 45 6 78 ");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has -- "-+-38-123-45-6-78', function () {
-        const act = testLogic.checkPhoneNumber("-+-38-123-45-6-78");
+        const act = testLogic.checkPhoneNumberValidation("-+-38-123-45-6-78");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has a , * "a+ 38,-123*45-6-78', function () {
-        const act = testLogic.checkPhoneNumber("a+ 38,-123*45-6-78");
+        const act = testLogic.checkPhoneNumberValidation("a+ 38,-123*45-6-78");
         const exp = false;
         assert.equal(act, exp);
     });
 });
 describe("checkTypeSignInPhone tests of field PhoneNumber", () => {
     it('one sign is latin letter "  a+3812345678', function () {
-        const act = testLogic.checkPhoneNumber("a+3812345678");
+        const act = testLogic.checkPhoneNumberValidation("a+3812345678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('one sign is russian letter "  +3812345678', function () {
-        const act = testLogic.checkPhoneNumber("+381Ш2345678");
+        const act = testLogic.checkPhoneNumberValidation("+381Ш2345678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has plus and numbers +123456789012345', function () {
-        const act = testLogic.checkPhoneNumber("+123456789012345");
+        const act = testLogic.checkPhoneNumberValidation("+123456789012345");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has  second plus +12+3456789012345', function () {
-        const act = testLogic.checkPhoneNumber("+12+3456789012345");
+        const act = testLogic.checkPhoneNumberValidation("+12+3456789012345");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has  > +12>3456789012345 ', function () {
-        const act = testLogic.checkPhoneNumber("+12>3456789012345");
+        const act = testLogic.checkPhoneNumberValidation("+12>3456789012345");
         const exp = false;
         assert.equal(act, exp);
     });
     it('number has  : +12:3456789012345', function () {
-        const act = testLogic.checkPhoneNumber("+12:3456789012345");
+        const act = testLogic.checkPhoneNumberValidation("+12:3456789012345");
         const exp = false;
         assert.equal(act, exp);
     });
 });
 describe("checkCodeOfPhone tests of field PhoneNumber", () => {
     it('+380123456789 UA', function () {
-        const act = testLogic.checkPhoneNumber("+380123456789");
+        const act = testLogic.checkPhoneNumberValidation("+380123456789");
         const exp = true;
         assert.equal(act, exp);
     });
     it('+381123456789', function () {
-        const act = testLogic.checkPhoneNumber("+381123456789");
+        const act = testLogic.checkPhoneNumberValidation("+381123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+370123456789', function () {
-        const act = testLogic.checkPhoneNumber("+370123456789");
+        const act = testLogic.checkPhoneNumberValidation("+370123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+480123456789', function () {
-        const act = testLogic.checkPhoneNumber("+480123456789");
+        const act = testLogic.checkPhoneNumberValidation("+480123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+972123456789', function () {
-        const act = testLogic.checkPhoneNumber("+972123456789");
+        const act = testLogic.checkPhoneNumberValidation("+972123456789");
         const exp = true;
         assert.equal(act, exp);
     });
     it('+971123456789', function () {
-        const act = testLogic.checkPhoneNumber("+971123456789");
+        const act = testLogic.checkPhoneNumberValidation("+971123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+962123456789', function () {
-        const act = testLogic.checkPhoneNumber("+962123456789");
+        const act = testLogic.checkPhoneNumberValidation("+962123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+872123456789', function () {
-        const act = testLogic.checkPhoneNumber("+872123456789");
+        const act = testLogic.checkPhoneNumberValidation("+872123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+11234567890', function () {
-        const act = testLogic.checkPhoneNumber("+11234567890");
+        const act = testLogic.checkPhoneNumberValidation("+11234567890");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+01234567890', function () {
-        const act = testLogic.checkPhoneNumber("+01234567890");
+        const act = testLogic.checkPhoneNumberValidation("+01234567890");
         const exp = false;
         assert.equal(act, exp);
     });
 });
 describe("checkAmountOfSignInPhone tests of field PhoneNumber", () => {
     it('+380123456789', function () {
-        const act = testLogic.checkPhoneNumber("+380123456789");
+        const act = testLogic.checkPhoneNumberValidation("+380123456789");
         const exp = true;
         assert.equal(act, exp);
     });
     it('+3801234567890', function () {
-        const act = testLogic.checkPhoneNumber("+3801234567890");
+        const act = testLogic.checkPhoneNumberValidation("+3801234567890");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+38012345678', function () {
-        const act = testLogic.checkPhoneNumber("+38012345678");
+        const act = testLogic.checkPhoneNumberValidation("+38012345678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+972123456789', function () {
-        const act = testLogic.checkPhoneNumber("+972123456789");
+        const act = testLogic.checkPhoneNumberValidation("+972123456789");
         const exp = true;
         assert.equal(act, exp);
     });
     it('+9721234567890', function () {
-        const act = testLogic.checkPhoneNumber("+9721234567890");
+        const act = testLogic.checkPhoneNumberValidation("+9721234567890");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+97212345678', function () {
-        const act = testLogic.checkPhoneNumber("+97212345678");
+        const act = testLogic.checkPhoneNumberValidation("+97212345678");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+11234567890', function () {
-        const act = testLogic.checkPhoneNumber("+11234567890");
+        const act = testLogic.checkPhoneNumberValidation("+11234567890");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+1123456789', function () {
-        const act = testLogic.checkPhoneNumber("+1123456789");
+        const act = testLogic.checkPhoneNumberValidation("+1123456789");
         const exp = false;
         assert.equal(act, exp);
     });
     it('+112345678901', function () {
-        const act = testLogic.checkPhoneNumber("+112345678901");
+        const act = testLogic.checkPhoneNumberValidation("+112345678901");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+});
+
+describe("checkConfirm test", () => {
+    it('string + string is true', function () {
+        const act = testLogic.checkConfirm("testPass32", "testPass32");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+
+    it('string + string is false', function () {
+        const act = testLogic.checkConfirm("testPass321", "testPass32");
+        const exp = false;
+        assert.equal(act, exp);
+    });
+});
+
+describe("checkNameValidation test", () => {
+    it('latin is true', function () {
+        const act = testLogic.checkNameValidation("Vasya");
+        const exp = true;
+        assert.equal(act, exp);
+    });
+
+    it('Cyryllic is false', function () {
+        const act = testLogic.checkNameValidation("Вася");
         const exp = false;
         assert.equal(act, exp);
     });

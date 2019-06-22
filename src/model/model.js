@@ -8,10 +8,20 @@ function Model() {
     this.surname = "";
     this.gender = "";
     this.relation = "";
-this.experience = "";
-this.progrLang = "";
-this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea','nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
-
+    this.experience = "";
+    this.progrLang = "";
+    this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea','nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
+    this.usernameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
+    this.passwordTipString = 'password must have from 6 to 30 characters, including one digit, one letter of the upper register, one letter of the lower register';
+    this.confirmTipString = 'Passwords do not match';
+    this.emailTipString = 'You entered an invalid email';
+    this.phoneTipString = 'enter first sign "+" then USA code "+1" and 12 digits or Israel code "+972" and 9 digits or Ukrainian code "+380" and 9 digits' ;
+    this.nameTipString = '';
+    this.surnameTipString = '';
+    this.genderTipString = '';
+    this.relationTipString = '';
+    this.progrLangTipString = '';
+    this.experienceTipString = '';
 
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "        <div class=\"body__title\">Create an Account</div>\n" +
