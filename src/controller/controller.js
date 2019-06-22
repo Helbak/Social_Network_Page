@@ -13,11 +13,11 @@ Controller.prototype.init = function () {
     const email = document.getElementById("email");
     const phone = document.getElementById("phone");
 
-    username.value=this.model.username;
-    phone.value=this.model.phone;
-    password.value=this.model.password;
-    confirm.value=this.model.confirm;
-    email.value=this.model.email;
+    username.value = this.model.username;
+    phone.value = this.model.phone;
+    password.value = this.model.password;
+    confirm.value = this.model.confirm;
+    email.value = this.model.email;
 
     username.addEventListener('keyup', function () {
             if (this.logic.checkUsernameLength(username.value) === true && this.logic.checkUsernameValidation(username.value) === true) {
@@ -92,8 +92,7 @@ Controller.prototype.init = function () {
                 this.logic.checkConfirm(password.value, confirm.value) === true &&
                 this.logic.checkPasswordLength(password.value) !== false &&
                 this.logic.checkPasswordValidation(password.value) === true
-        )
-            {
+            ) {
                 this.model.setUsername(username.value);
                 this.model.setPhone(phone.value);
                 this.model.setPassword(password.value);
@@ -101,35 +100,48 @@ Controller.prototype.init = function () {
                 this.model.setEmail(email.value);
                 this.hideTip();
                 this.functionStep2();
-                            }
+            }
         }.bind(this),
         false);
-
 };
 Controller.prototype.functionStep2 = function () {
+
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep2();
     const name = document.getElementById('name');
-    name.addEventListener('keyup', function () {
-            this.model.setName(name.value);
-            this.redDrawer("nameArea");
+    const surname = document.getElementById('surname');
+    const gender = document.getElementById('gender');
+    const relation = document.getElementById('relation');
 
+    name.value=this.model.name;
+    surname.value=this.model.surname;
+    gender.value=this.model.gender;
+    relation.value=this.model.relation;
+
+
+    name.addEventListener('keyup', function () {
+            if (this.logic.checkNameValidation(name.value) === true) {
+                this.model.setName(name.value);
+                this.redDrawer("nameArea", "black");
+            }
+            if (this.logic.checkNameValidation(name.value) === false) {
+                this.redDrawer("nameArea", "red");
+            }
         }.bind(this),
         false);
-    const surname = document.getElementById('surname');
+
     surname.addEventListener('keyup', function () {
             this.model.setSurname(surname.value);
-            this.redDrawer("surnameArea");
-        }.bind(this),
+            }.bind(this),
         false);
-    const gender = document.getElementById('gender');
-    gender.addEventListener('click', function () {
+
+    gender.addEventListener('change', function () {
             this.model.setGender(gender.value);
 
         }.bind(this),
         false);
-    const relation = document.getElementById('relation');
-    relation.addEventListener('click', function () {
+
+    relation.addEventListener('change', function () {
             this.model.setRelation(relation.value);
 
         }.bind(this),
@@ -141,8 +153,12 @@ Controller.prototype.functionStep2 = function () {
         }.bind(this),
         false);
     const nextButtonFrom2 = document.getElementById('nextButtonFrom2');
+
     nextButtonFrom2.addEventListener('click', function () {
+        console.log(' this.model.setRelation=  '+ this.model.relation);
+        if (this.logic.checkNameValidation(name.value) === true) {
             this.functionStep3();
+        }
         }.bind(this),
         false);
 
@@ -152,13 +168,13 @@ Controller.prototype.functionStep3 = function () {
     indev.innerHTML = this.model.getStep3();
 
     const progrLang = document.getElementById('progrLang');
-    progrLang.addEventListener('click', function () {
+    progrLang.addEventListener('change', function () {
             this.model.setProgrLang(progrLang.value);
-            console.log("username =  " + this.model.getProgrLang());
+
         }.bind(this),
         false);
     const experience = document.getElementById('experience');
-    experience.addEventListener('click', function () {
+    experience.addEventListener('change', function () {
             this.model.setExperience(progrLang.value);
         }.bind(this),
         false);
@@ -173,22 +189,6 @@ Controller.prototype.functionStep3 = function () {
         }.bind(this),
         false);
 };
-// Controller.prototype.redDrawer = function (id) {
-//     const arrayArea= this.model.getArea();
-//    for(let i=0; i<arrayArea.length; i++){
-//
-//        if(id ===arrayArea[i]){
-//            let area = document.getElementById(arrayArea[i]);
-//            area.style ="color: rgba(254, 27, 46, 0.95);";
-//
-//        }
-//        if(id !==arrayArea[i] ){
-//            let area = document.getElementById(arrayArea[i]);
-//            area.style ="color: rgba(9, 1, 1, 0.95);";
-//        }
-//    }
-//
-// };
 
 Controller.prototype.redDrawer = function (id, color) {
     console.log(" Controller.prototype.redDrawer ");
@@ -202,32 +202,32 @@ Controller.prototype.redDrawer = function (id, color) {
 };
 
 Controller.prototype.showTip = function (id) {
-    if (id === 'username'){
+    if (id === 'username') {
         console.log(this.model.usernameTipString);
         const tip = document.getElementById('tooltip');
         tip.style.display = 'block';
         tip.innerHTML = this.model.usernameTipString;
         tip.style.top = '300px';
         tip.style.left = '950px';
-    } else if (id === 'password'){
+    } else if (id === 'password') {
         const tip = document.getElementById('tooltip');
         tip.style.display = 'block';
         tip.innerHTML = this.model.passwordTipString;
         tip.style.top = '380px';
         tip.style.left = '950px';
-    } else if (id === 'confirm'){
+    } else if (id === 'confirm') {
         const tip = document.getElementById('tooltip');
         tip.style.display = 'block';
         tip.innerHTML = this.model.confirmTipString;
         tip.style.top = '430px';
         tip.style.left = '950px';
-    } else if (id === 'email'){
+    } else if (id === 'email') {
         const tip = document.getElementById('tooltip');
         tip.style.display = 'block';
         tip.innerHTML = this.model.emailTipString;
         tip.style.top = '500px';
         tip.style.left = '950px';
-    } else if (id === 'phone'){
+    } else if (id === 'phone') {
         const tip = document.getElementById('tooltip');
         tip.style.display = 'block';
         tip.innerHTML = this.model.phoneTipString;
