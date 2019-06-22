@@ -208,3 +208,18 @@ table {
     background: black;
     color: white;
 }
+
+.tooltip {
+    z-index: 9999;
+    position: absolute;
+    display: none;
+    top:0px;
+    left:0px;
+    background-color: #e43618;
+    padding: 10px 10px 10px 10px;
+    color: black;
+    text-align: left;
+    opacity: 0.6;
+    border-radius: 5px;
+    font-family: Arial, serif
+}

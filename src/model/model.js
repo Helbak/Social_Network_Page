@@ -29,9 +29,9 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "            <span  class=\"step1 span\" id = \"usernameArea\">Username*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"username\">\n" +
     "            <span  class=\"step1 span\" id = \"passwordArea\">Password*</span>\n" +
-    "            <input class=\"step1 input\" type=\"text\" id = \"password\">\n" +
+    "            <input class=\"step1 input\" type=\"password\" id = \"password\">\n" +
     "            <span  class=\"step1 span\" id = \"confirmArea\">Confirm*</span>\n" +
-    "            <input class=\"step1 input\" type=\"text\" id = \"confirm\">\n" +
+    "            <input class=\"step1 input\" type=\"password\" id = \"confirm\">\n" +
     "            <span  class=\"step1 span\" id = \"emailArea\">E-mail*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"email\">\n" +
     "            <span  class=\"step1 span\" id = \"phoneArea\">Phone*</span>\n" +

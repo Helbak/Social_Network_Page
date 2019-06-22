@@ -22,9 +22,11 @@ Controller.prototype.init = function () {
     username.addEventListener('keyup', function () {
             if (this.logic.checkUsernameLength(username.value) === true && this.logic.checkUsernameValidation(username.value) === true) {
                 this.redDrawer("usernameArea", 'black');
+                this.hideTip();
             }
             if (this.logic.checkUsernameLength(username.value) === false || this.logic.checkUsernameValidation(username.value) === false) {
                 this.redDrawer("usernameArea", 'red');
+                this.showTip("username");
             }
         }.bind(this),
         false);
@@ -33,10 +35,12 @@ Controller.prototype.init = function () {
     password.addEventListener('keyup', function () {
             if (this.logic.checkPasswordLength(password.value) !== false && this.logic.checkPasswordValidation(password.value) === true) {
                 this.redDrawer("passwordArea", 'black');
+                this.hideTip();
             }
 
             if (this.logic.checkPasswordLength(password.value) === false || this.logic.checkPasswordValidation(password.value) === false) {
                 this.redDrawer("passwordArea", 'red');
+                this.showTip("password");
             }
 
         }.bind(this),
@@ -46,9 +50,11 @@ Controller.prototype.init = function () {
     confirm.addEventListener('keyup', function () {
             if (this.logic.checkConfirm(password.value, confirm.value) === true) {
                 this.redDrawer("confirmArea", 'black');
+                this.hideTip();
             }
             if (this.logic.checkConfirm(password.value, confirm.value) === false) {
                 this.redDrawer("confirmArea", 'red');
+                this.showTip("confirm");
             }
         }.bind(this),
         false);
@@ -57,9 +63,11 @@ Controller.prototype.init = function () {
     email.addEventListener('keyup', function () {
             if (this.logic.checkEmailValidation(email.value) === true) {
                 this.redDrawer("emailArea", 'black');
+                this.hideTip();
             }
             if (this.logic.checkEmailValidation(email.value) === false) {
                 this.redDrawer("emailArea", 'red');
+                this.showTip("email");
             }
         }.bind(this),
         false);
@@ -68,9 +76,11 @@ Controller.prototype.init = function () {
     phone.addEventListener('keyup', function () {
             if (this.logic.checkPhoneNumberValidation(phone.value) === true) {
                 this.redDrawer("phoneArea", 'black');
+                this.hideTip();
             }
             if (this.logic.checkPhoneNumberValidation(phone.value) === false) {
                 this.redDrawer("phoneArea", 'red');
+                this.showTip("phone");
             }
         }.bind(this),
         false);
@@ -89,6 +99,7 @@ Controller.prototype.init = function () {
                 this.model.setPassword(password.value);
                 this.model.setConfirm(confirm.value);
                 this.model.setEmail(email.value);
+                this.hideTip();
                 this.functionStep2();
                             }
         }.bind(this),
@@ -188,4 +199,46 @@ Controller.prototype.redDrawer = function (id, color) {
     if (color === 'red') {
         area.style = "color: rgba(254, 27, 46, 0.95)";
     }
+};
+
+Controller.prototype.showTip = function (id) {
+    if (id === 'username'){
+        console.log(this.model.usernameTipString);
+        const tip = document.getElementById('tooltip');
+        tip.style.display = 'block';
+        tip.innerHTML = this.model.usernameTipString;
+        tip.style.top = '300px';
+        tip.style.left = '950px';
+    } else if (id === 'password'){
+        const tip = document.getElementById('tooltip');
+        tip.style.display = 'block';
+        tip.innerHTML = this.model.passwordTipString;
+        tip.style.top = '380px';
+        tip.style.left = '950px';
+    } else if (id === 'confirm'){
+        const tip = document.getElementById('tooltip');
+        tip.style.display = 'block';
+        tip.innerHTML = this.model.confirmTipString;
+        tip.style.top = '430px';
+        tip.style.left = '950px';
+    } else if (id === 'email'){
+        const tip = document.getElementById('tooltip');
+        tip.style.display = 'block';
+        tip.innerHTML = this.model.emailTipString;
+        tip.style.top = '500px';
+        tip.style.left = '950px';
+    } else if (id === 'phone'){
+        const tip = document.getElementById('tooltip');
+        tip.style.display = 'block';
+        tip.innerHTML = this.model.phoneTipString;
+        tip.style.top = '550px';
+        tip.style.left = '950px';
+    } else {
+        return false;
+    }
+};
+
+Controller.prototype.hideTip = function () {
+    const tip = document.getElementById('tooltip');
+    return tip.style.display = 'none';
 };
