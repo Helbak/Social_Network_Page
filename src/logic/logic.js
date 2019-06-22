@@ -17,6 +17,7 @@ Logic.prototype.checkUsernameValidation = function (username) {
         return false;
     }
 };
+
 Logic.prototype.checkPasswordLength = function (password) {
     if (password.length < 6 || password.length > 30) {
         return false;
@@ -46,7 +47,7 @@ Logic.prototype.checkConfirm = function (stringA, stringB){
 };
 
 Logic.prototype.checkEmailValidation = function (email) {
-    if(/(^[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]{0,20})+(?:\.[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-zA-Z0-9]([-a-zA-Z0-9]{0,18}[a-zA-Z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z])$/.test(email)){
+    if(/(^[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]{0,20})+(?:\.[-a-zA-Z0-9!#$%&'*+/=?^_`{|}~]+)*@(?:[a-zA-Z0-9]([-a-zA-Z0-9]{0,18}[a-zA-Z0-9])?\.)*(?:aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z]{2,4})$/.test(email)){
         return true;
     } else {
         return false;

@@ -8,46 +8,92 @@ Controller.prototype.init = function () {
     indev.innerHTML = this.model.getStep1();
 
     const username = document.getElementById("username");
-    username.addEventListener('keyup', function () {
-        if(this.logic.checkUsernameLength(username.value)===true && this.logic.checkUsernameValidation(username.value)===true){
-             this.redDrawer("usernameArea",'black');}
-            if(this.logic.checkUsernameLength(username.value)!==true || this.logic.checkUsernameValidation(username.value)!==true){
-                this.redDrawer("usernameArea",'red');}
-        }.bind(this),
-        false);
-
     const password = document.getElementById("password");
-    password.addEventListener('keyup', function () {
-            this.model.setPassword(password.value);
-            this.redDrawer("passwordArea");
-        }.bind(this),
-        false);
-
     const confirm = document.getElementById("confirm");
-    confirm.addEventListener('keyup', function () {
-            this.model.setConfirm(confirm.value);
-            this.redDrawer("confirmArea");
-        }.bind(this),
-        false);
-
     const email = document.getElementById("email");
-    email.addEventListener('keyup', function () {
-            this.model.setEmail(email.value);
-            this.redDrawer("emailArea");
+    const phone = document.getElementById("phone");
+
+    username.value=this.model.username;
+    phone.value=this.model.phone;
+    password.value=this.model.password;
+    confirm.value=this.model.confirm;
+    email.value=this.model.email;
+
+    username.addEventListener('keyup', function () {
+            if (this.logic.checkUsernameLength(username.value) === true && this.logic.checkUsernameValidation(username.value) === true) {
+                this.redDrawer("usernameArea", 'black');
+            }
+            if (this.logic.checkUsernameLength(username.value) === false || this.logic.checkUsernameValidation(username.value) === false) {
+                this.redDrawer("usernameArea", 'red');
+            }
         }.bind(this),
         false);
 
-    const phone = document.getElementById("phone");
-    phone.addEventListener('keyup', function () {
-            this.model.setPhone(phone.value);
-            this.redDrawer("phoneArea");
+
+    password.addEventListener('keyup', function () {
+            if (this.logic.checkPasswordLength(password.value) !== false && this.logic.checkPasswordValidation(password.value) === true) {
+                this.redDrawer("passwordArea", 'black');
+            }
+
+            if (this.logic.checkPasswordLength(password.value) === false || this.logic.checkPasswordValidation(password.value) === false) {
+                this.redDrawer("passwordArea", 'red');
+            }
+
         }.bind(this),
         false);
+
+
+    confirm.addEventListener('keyup', function () {
+            if (this.logic.checkConfirm(password.value, confirm.value) === true) {
+                this.redDrawer("confirmArea", 'black');
+            }
+            if (this.logic.checkConfirm(password.value, confirm.value) === false) {
+                this.redDrawer("confirmArea", 'red');
+            }
+        }.bind(this),
+        false);
+
+
+    email.addEventListener('keyup', function () {
+            if (this.logic.checkEmailValidation(email.value) === true) {
+                this.redDrawer("emailArea", 'black');
+            }
+            if (this.logic.checkEmailValidation(email.value) === false) {
+                this.redDrawer("emailArea", 'red');
+            }
+        }.bind(this),
+        false);
+
+
+    phone.addEventListener('keyup', function () {
+            if (this.logic.checkPhoneNumberValidation(phone.value) === true) {
+                this.redDrawer("phoneArea", 'black');
+            }
+            if (this.logic.checkPhoneNumberValidation(phone.value) === false) {
+                this.redDrawer("phoneArea", 'red');
+            }
+        }.bind(this),
+        false);
+
     const nextFromStep1 = document.getElementById("nextButton");
     nextFromStep1.addEventListener('click', function () {
-            this.functionStep2();
+            if (this.logic.checkPhoneNumberValidation(phone.value) === true &&
+                this.logic.checkPhoneNumberValidation(phone.value) === true &&
+                this.logic.checkConfirm(password.value, confirm.value) === true &&
+                this.logic.checkPasswordLength(password.value) !== false &&
+                this.logic.checkPasswordValidation(password.value) === true
+        )
+            {
+                this.model.setUsername(username.value);
+                this.model.setPhone(phone.value);
+                this.model.setPassword(password.value);
+                this.model.setConfirm(confirm.value);
+                this.model.setEmail(email.value);
+                this.functionStep2();
+                            }
         }.bind(this),
         false);
+
 };
 Controller.prototype.functionStep2 = function () {
     const indev = document.getElementById('indev');
@@ -97,13 +143,13 @@ Controller.prototype.functionStep3 = function () {
     const progrLang = document.getElementById('progrLang');
     progrLang.addEventListener('click', function () {
             this.model.setProgrLang(progrLang.value);
-            console.log("username =  "+this.model.getProgrLang());
+            console.log("username =  " + this.model.getProgrLang());
         }.bind(this),
         false);
     const experience = document.getElementById('experience');
     experience.addEventListener('click', function () {
             this.model.setExperience(progrLang.value);
-           }.bind(this),
+        }.bind(this),
         false);
     const backButtonFromStep3 = document.getElementById('backButtonFromStep3');
     backButtonFromStep3.addEventListener('click', function () {
@@ -133,13 +179,13 @@ Controller.prototype.functionStep3 = function () {
 //
 // };
 
-Controller.prototype.redDrawer = function (id,color) {
-console.log(" Controller.prototype.redDrawer ");
+Controller.prototype.redDrawer = function (id, color) {
+    console.log(" Controller.prototype.redDrawer ");
     let area = document.getElementById(id);
-if (color==='black'){
-    area.style ="color: rgba(9, 1, 1, 0.95);";
-}
-if (color==='red'){
-    area.style ="color: rgba(254, 27, 46, 0.95)";
-}
+    if (color === 'black') {
+        area.style = "color: rgba(9, 1, 1, 0.95);";
+    }
+    if (color === 'red') {
+        area.style = "color: rgba(254, 27, 46, 0.95)";
+    }
 };
