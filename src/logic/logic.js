@@ -65,8 +65,6 @@ Logic.prototype.checkPhoneNumberValidation = function (phoneNumber) {
     }
 };
 
-
-
 Logic.prototype.checkNameValidation = function (name) {
     if (/^[a-zA-Z]+$/.test(name)){
         return true;

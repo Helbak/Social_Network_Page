@@ -131,6 +131,8 @@ Controller.prototype.redDrawer = function (id) {
 
 };
 
+
+
 // function setStyle(node) {
 //     let nextNode = document.getElementById(stringID(node.el));
 //     nextNode.style = "position: absolute; "
