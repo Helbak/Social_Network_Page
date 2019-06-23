@@ -10,6 +10,7 @@ function Model() {
     this.relation = "";
     this.experience = "";
     this.progrLang = "";
+    this.rules;
     this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea','nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
     this.usernameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
     this.passwordTipString = 'password must have from 6 to 30 characters, including one digit, one letter of the upper register, one letter of the lower register';
@@ -99,8 +100,8 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
             "            <option>4 and more years</option>\n" +
             "        </datalist>\n" +
             "        <div class=\"step1 checkbox\">\n" +
-            "            <input type=\"checkbox\">\n" +
-            "            <label for=\"checkbox\">Accept the <a href=\"http://www.yandex.ru\">registration</a> rules</label>\n" +
+            "            <input type=\"checkbox\" id = \"checkboxRules\" value=\"true\">\n" +
+            "            <label for=\"checkbox\">Accept the <a href=\"mock.html\">registration</a> rules</label>\n" +
             "        </div>\n" +
             "\n" +
             "\n" +
@@ -198,6 +199,12 @@ Model.prototype.setExperience = function(experience){
 };
 Model.prototype.getArea = function(){
     return this.area;
+};
+Model.prototype.setRules = function(rules){
+    return this.rules = rules;
+};
+Model.prototype.getArea = function(){
+    return this.rules;
 };
 
 

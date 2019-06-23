@@ -155,7 +155,7 @@ Controller.prototype.functionStep2 = function () {
     const nextButtonFrom2 = document.getElementById('nextButtonFrom2');
 
     nextButtonFrom2.addEventListener('click', function () {
-        console.log(' this.model.setRelation=  '+ this.model.relation);
+
         if (this.logic.checkNameValidation(name.value) === true) {
             this.functionStep3();
         }
@@ -164,13 +164,14 @@ Controller.prototype.functionStep2 = function () {
 
 };
 Controller.prototype.functionStep3 = function () {
+
+
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep3();
 
     const progrLang = document.getElementById('progrLang');
     progrLang.addEventListener('change', function () {
-            this.model.setProgrLang(progrLang.value);
-
+                    this.model.setProgrLang(progrLang.value);
         }.bind(this),
         false);
     const experience = document.getElementById('experience');
@@ -183,15 +184,23 @@ Controller.prototype.functionStep3 = function () {
             this.functionStep2();
         }.bind(this),
         false);
+    const checkboxRules = document.getElementById('checkboxRules');
+
+    checkboxRules.addEventListener('change',function () {
+        this.model.setRules(checkboxRules.checked);
+
+        }.bind(this),
+        false);
     const registerButton = document.getElementById('registerButton');
     registerButton.addEventListener('click', function () {
-            this.init();
+        if(this.model.rules===true){
+            this.init();}
         }.bind(this),
         false);
 };
 
 Controller.prototype.redDrawer = function (id, color) {
-    console.log(" Controller.prototype.redDrawer ");
+
     let area = document.getElementById(id);
     if (color === 'black') {
         area.style = "color: rgba(9, 1, 1, 0.95);";
