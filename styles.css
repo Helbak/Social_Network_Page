@@ -86,8 +86,23 @@ table {
 }
 
 .right-buttons:hover {
+    cursor: pointer;
     background: #5c5d5f;
     color: white;
+}
+
+.signup {
+    cursor: pointer;
+    background: #5c5d5f;
+    color: white;
+    outline: none;
+    border: none;
+    display: block;
+    width: 210px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
 }
 
 .header__image {
@@ -222,4 +237,18 @@ table {
     opacity: 0.6;
     border-radius: 5px;
     font-family: Arial, serif
+}
+
+.btn_back {
+    margin-left: 590px;
+    margin-top: 350px;
+    background: #ffffff;
+    text-shadow: 0px 2px 0px rgba(254, 255, 253, 0.88);
+    font-size: 22px;
+    height: 58px;
+    width: 155px;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    line-height: 58px;
 }
