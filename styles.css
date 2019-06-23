@@ -36,7 +36,7 @@ table {
     /*margin-top: 3px;*/
     border: 0.1px solid black;
     background-image: url(images/image.png);
-    position: fixed;
+    position: relative;
 }
 
 .InDev__header {
@@ -137,7 +137,7 @@ table {
     top: 194px;
     width: 400px;
     height: 100px;
-    font-size: 40px;
+    font-size: 35px;
     font-family:inherit;
     font-weight: 900;
 }
