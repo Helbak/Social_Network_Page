@@ -113,6 +113,41 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
             "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
             "        </div>\n" +
             "    </div>";
+
+        this.stringResult = "<div class=\"body__title\">Successful registration</div>\n" +
+            "<div class=\"body__step1\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"usernameResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"password\" id=\"passwordResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"confirmResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"emailResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"tel\" id=\"phoneResult\">\n" +
+            "\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"nameResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"surnameResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"genderResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"relationResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"progrLangResult\">\n" +
+            "\n" +
+            "    <input class=\"step1 input\" type=\"text\" id=\"experienceResult\">\n" +
+            "\n" +
+            "\n" +
+            "</div>\n" +
+            "<div class=\"body__back\">\n" +
+            "    <button class=\"back\" id=\"backButtonFromResult\">Back</button>\n" +
+            "</div>";
+};
+Model.prototype.getResult = function(){
+    return this.stringResult;
 };
 Model.prototype.getStep1 = function(){
     return this.stringStep1;
