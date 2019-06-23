@@ -199,6 +199,12 @@ Controller.prototype.functionStep3 = function () {
         false);
 };
 
+Controller.prototype.functionResult = function () {
+    const indev = document.getElementById('indev');
+    indev.innerHTML = this.model.getStep3();
+
+};
+
 Controller.prototype.redDrawer = function (id, color) {
 
     let area = document.getElementById(id);
