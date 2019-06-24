@@ -91,7 +91,8 @@ Controller.prototype.init = function () {
                 this.logic.checkPhoneNumberValidation(phone.value) === true &&
                 this.logic.checkConfirm(password.value, confirm.value) === true &&
                 this.logic.checkPasswordLength(password.value) !== false &&
-                this.logic.checkPasswordValidation(password.value) === true
+                this.logic.checkPasswordValidation(password.value) === true &&
+                this.logic.checkUsernameValidation(username.value)  === true
             ) {
                 this.model.setUsername(username.value);
                 this.model.setPhone(phone.value);

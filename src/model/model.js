@@ -28,7 +28,7 @@ function Model() {
 this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
     "        <div class=\"body__title\">Create an Account</div>\n" +
     "        <div class=\"body__step1\">\n" +
-    "            <span  class=\"step1 span\" id = \"usernameArea\">Username</span>\n" +
+    "            <span  class=\"step1 span\" id = \"usernameArea\">Username*</span>\n" +
     "            <input class=\"step1 input\" type=\"text\" id = \"username\">\n" +
     "            <span  class=\"step1 span\" id = \"passwordArea\">Password*</span>\n" +
     "            <input class=\"step1 input\" type=\"password\" id = \"password\">\n" +
@@ -71,33 +71,48 @@ this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
         "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
         "</div>";
 
-        this.stringStep3 = "<div class=\"body__steps\">Step 2 of 3</div>\n" +
-            "<div class=\"body__title\">Create an Account</div>\n" +
-            "<div class=\"body__step1\">\n" +
-            "    <span class=\"step1 span\" id='nameArea'>Name*</span>\n" +
-            "    <input class=\"step1 input\" type=\"text\" id=\"name\">\n" +
-            "    <span class=\"step1 span\" id='surnameArea'>Surname</span>\n" +
-            "    <input class=\"step1 input\" type=\"text\" id=\"surname\">\n" +
-            "    <span class=\"step1 span\" id='genderArea' readonly=\"true\">Gender</span>\n" +
-            "    <input class=\"step1 input\" type=\"text\" id=\"gender\" list=\"l3\">\n" +
-            "    <datalist id=\"l3\">\n" +
-            "        <option>male</option>\n" +
-            "        <option>female</option>\n" +
-            "    </datalist>\n" +
-            "    <span class=\"step1 span\" id='relationArea' readonly=\"true\">Relationship status</span>\n" +
-            "     <input class=\"step1 input\" type=\"text\" id=\"relation\" list=\"l4\">\n" +
-            "    <datalist id=\"l4\">\n" +
-            "        <option>single</option>\n" +
-            "        <option>married</option>\n" +
-            "        <option>divorced</option>\n" +
-            "    </datalist>\n" +
-            "</div>\n" +
-            "<div class=\"body__back\">\n" +
-            "    <button class=\"back\" id=\"backButtonFrom2\">Back</button>\n" +
-            "</div>\n" +
-            "<div class=\"body__next\">\n" +
-            "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
-            "</div>\n";
+        this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
+            "    <div class=\"body__title\">Create an Account</div>\n" +
+            "    <div class=\"body__step1\">\n" +
+            "        <span  class=\"step1 span\" id='progrLangArea'>Programming languages</span>\n" +
+            "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" list=\"l1\">\n" +
+            "        <datalist id=\"l1\">\n" +
+            "\n" +
+            "            <option>Java</option>\n" +
+            "            <option>C</option>\n" +
+            "            <option>C++</option>\n" +
+            "            <option>C#</option>\n" +
+            "            <option>JavaScript</option>\n" +
+            "            <option>PHP</option>\n" +
+            "            <option>Ruby</option>\n" +
+            "            <option>Matlab</option>\n" +
+            "            <option>Python</option>\n" +
+            "            <option>R</option>\n" +
+            "            <option>Swift</option>\n" +
+            "        </datalist>\n" +
+            "        <span  class=\"step1 span\" id='experienceArea'>Work experience</span>\n" +
+            "        <input class=\"step1 input\" type=\"text\" id=\"experience\" list=\"l2\">\n" +
+            "        <datalist id=\"l2\">\n" +
+            "            <option>0 - 1 years</option>\n" +
+            "            <option>1 - 2 years</option>\n" +
+            "            <option>2 - 3 years</option>\n" +
+            "            <option>3 - 4 years</option>\n" +
+            "            <option>4 and more years</option>\n" +
+            "        </datalist>\n" +
+            "        <div class=\"step1 checkbox\">\n" +
+            "            <input type=\"checkbox\" id = \"checkboxRules\" value=\"true\">\n" +
+            "            <label for=\"checkbox\">Accept the <a href=\"mock.html\">registration</a> rules</label>\n" +
+            "        </div>\n" +
+            "\n" +
+            "\n" +
+            "\n" +
+            "    <div class=\"body__back\">\n" +
+            "        <button class=\"back\" id=\"backButtonFromStep3\">Back</button>\n" +
+            "    </div>\n" +
+            "        <div class=\"body__register\">\n" +
+            "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
+            "        </div>\n" +
+            "    </div>";
 
         this.stringResult = "<div class=\"body__title\">Successful registration</div>\n" +
             "<div class=\"body__step1\">\n" +
