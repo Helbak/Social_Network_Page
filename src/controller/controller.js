@@ -1,7 +1,8 @@
 function Controller() {
+    this.tooltip = document.getElementById('tooltip');
     this.logic = new Logic();
     this.model = new Model();
-};
+}
 
 Controller.prototype.init = function () {
     const indev = document.getElementById('indev');
@@ -320,43 +321,41 @@ Controller.prototype.redDrawer = function (id, color) {
 };
 
 Controller.prototype.showTip = function (id) {
-    if (id === 'username') {
-        console.log(this.model.usernameTipString);
-        const tip = document.getElementById('tooltip');
-        tip.style.display = 'block';
-        tip.innerHTML = this.model.usernameTipString;
-        tip.style.top = '300px';
-        tip.style.left = '950px';
-    } else if (id === 'password') {
-        const tip = document.getElementById('tooltip');
-        tip.style.display = 'block';
-        tip.innerHTML = this.model.passwordTipString;
-        tip.style.top = '380px';
-        tip.style.left = '950px';
-    } else if (id === 'confirm') {
-        const tip = document.getElementById('tooltip');
-        tip.style.display = 'block';
-        tip.innerHTML = this.model.confirmTipString;
-        tip.style.top = '430px';
-        tip.style.left = '950px';
-    } else if (id === 'email') {
-        const tip = document.getElementById('tooltip');
-        tip.style.display = 'block';
-        tip.innerHTML = this.model.emailTipString;
-        tip.style.top = '500px';
-        tip.style.left = '950px';
-    } else if (id === 'phone') {
-        const tip = document.getElementById('tooltip');
-        tip.style.display = 'block';
-        tip.innerHTML = this.model.phoneTipString;
-        tip.style.top = '550px';
-        tip.style.left = '950px';
-    } else {
-        return false;
+    switch (id) {
+        case ('username'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.usernameTipString;
+            this.tooltip.style.top = '300px';
+            this.tooltip.style.left = '980px';
+            break;
+        case ('password'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.passwordTipString;
+            this.tooltip.style.top = '380px';
+            this.tooltip.style.left = '980px';
+            break;
+        case('confirm'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.confirmTipString;
+            this.tooltip.style.top = '430px';
+            this.tooltip.style.left = '980px';
+            break;
+        case('email'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.emailTipString;
+            this.tooltip.style.top = '500px';
+            this.tooltip.style.left = '980px';
+            break;
+        case('phone'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.phoneTipString;
+            this.tooltip.style.top = '550px';
+            this.tooltip.style.left = '980px';
+            break;
+        default : break;
     }
 };
 
 Controller.prototype.hideTip = function () {
-    const tip = document.getElementById('tooltip');
-    return tip.style.display = 'none';
+    return this.tooltip.style.display = 'none';
 };
