@@ -1,6 +1,6 @@
 window.onload = function() {
     const controller = new Controller();
-    controller.init();
+    controller.init(1);
 };
 
 

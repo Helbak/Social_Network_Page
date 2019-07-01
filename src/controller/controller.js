@@ -4,7 +4,8 @@ function Controller() {
     this.model = new Model();
 }
 
-Controller.prototype.init = function () {
+Controller.prototype.init = function (a) {
+
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep1();
 
@@ -14,6 +15,45 @@ Controller.prototype.init = function () {
     const email = document.getElementById("email");
     const phone = document.getElementById("phone");
 
+    if (a === 2) {
+        if (this.logic.checkUsernameLength(this.model.username) === true && this.logic.checkUsernameValidation(this.model.username) === true) {
+            this.redDrawer("usernameArea", 'blue');
+        }
+        if (this.logic.checkUsernameLength(this.model.username) === false || this.logic.checkUsernameValidation(this.model.username) === false) {
+            this.redDrawer("usernameArea", 'red');
+            this.model.username = '';
+        }
+        if (this.logic.checkPasswordLength(this.model.password) !== false && this.logic.checkPasswordValidation(this.model.password) === true) {
+            this.redDrawer("passwordArea", 'blue');
+        }
+        if (this.logic.checkPasswordLength(this.model.password) === false || this.logic.checkPasswordValidation(this.model.password) === false) {
+            this.redDrawer("passwordArea", 'red');
+            this.model.password = '';
+            this.model.confirm = '';
+        }
+        if (this.logic.checkConfirm(this.model.password, this.model.confirm) === true) {
+            this.redDrawer("confirmArea", 'blue');
+        }
+        if (this.logic.checkConfirm(this.model.password, this.model.confirm) === false) {
+            this.redDrawer("confirmArea", 'red');
+            this.model.confirm = '';
+        }
+        if (this.logic.checkEmailValidation(this.model.email) === true) {
+            this.redDrawer("emailArea", 'blue');
+        }
+        if (this.logic.checkEmailValidation(this.model.email) === false) {
+            this.redDrawer("emailArea", 'red');
+            this.model.email = '';
+        }
+        if (this.logic.checkPhoneNumberValidation(this.model.phone) === true) {
+            this.redDrawer("phoneArea", 'blue');
+        }
+        if (this.logic.checkPhoneNumberValidation(this.model.phone) === false) {
+            this.redDrawer("phoneArea", 'red');
+            this.model.phone = '';
+        }
+    }
+    ;
     username.value = this.model.username;
     phone.value = this.model.phone;
     password.value = this.model.password;
@@ -28,6 +68,7 @@ Controller.prototype.init = function () {
             }
             if (this.logic.checkUsernameLength(username.value) === false || this.logic.checkUsernameValidation(username.value) === false) {
                 this.redDrawer("usernameArea", 'red');
+                this.model.setUsername('');
                 this.showTip("username");
             }
         }.bind(this),
@@ -35,6 +76,15 @@ Controller.prototype.init = function () {
 
 
     password.addEventListener('keyup', function () {
+
+            if (this.logic.checkConfirm(password.value, confirm.value) === true) {
+                this.redDrawer("confirmArea", 'blue');
+            }
+            if (this.logic.checkConfirm(password.value, confirm.value) === false) {
+                this.redDrawer("confirmArea", 'red');
+            }
+
+
             if (this.logic.checkPasswordLength(password.value) !== false && this.logic.checkPasswordValidation(password.value) === true) {
                 this.redDrawer("passwordArea", 'blue');
                 this.model.setPassword(password.value);
@@ -43,6 +93,7 @@ Controller.prototype.init = function () {
 
             if (this.logic.checkPasswordLength(password.value) === false || this.logic.checkPasswordValidation(password.value) === false) {
                 this.redDrawer("passwordArea", 'red');
+                this.model.setPassword('');
                 this.showTip("password");
             }
 
@@ -58,6 +109,7 @@ Controller.prototype.init = function () {
             }
             if (this.logic.checkConfirm(password.value, confirm.value) === false) {
                 this.redDrawer("confirmArea", 'red');
+                this.model.setConfirm('');
                 this.showTip("confirm");
             }
         }.bind(this),
@@ -72,6 +124,7 @@ Controller.prototype.init = function () {
             }
             if (this.logic.checkEmailValidation(email.value) === false) {
                 this.redDrawer("emailArea", 'red');
+                this.model.setEmail('');
                 this.showTip("email");
             }
         }.bind(this),
@@ -86,6 +139,7 @@ Controller.prototype.init = function () {
             }
             if (this.logic.checkPhoneNumberValidation(phone.value) === false) {
                 this.redDrawer("phoneArea", 'red');
+                this.model.setPhone('');
                 this.showTip("phone");
             }
         }.bind(this),
@@ -98,6 +152,7 @@ Controller.prototype.init = function () {
         }.bind(this),
         false);
 };
+
 Controller.prototype.functionStep2 = function () {
 
     const indev = document.getElementById('indev');
@@ -165,7 +220,7 @@ Controller.prototype.functionStep2 = function () {
         false);
     const backButtonFrom2 = document.getElementById("backButtonFrom2");
     backButtonFrom2.addEventListener('click', function () {
-            this.init();
+            this.init(2);
         }.bind(this),
         false);
     const nextButtonFrom2 = document.getElementById('nextButtonFrom2');
@@ -242,20 +297,20 @@ Controller.prototype.functionStep3 = function () {
                 this.logic.checkNameValidation(this.model.name) === true
                 &&
                 this.logic.checkUsernameValidation(this.model.username) === true
-            &&
+                &&
                 this.logic.checkUsernameLength(this.model.username) === true
-            &&
+                &&
                 this.logic.checkPasswordValidation(this.model.password) === true
-            &&
+                &&
                 this.logic.checkPasswordOnlyLength(this.model.password) === true
-            &&
+                &&
                 this.logic.checkConfirm(this.model.confirm, this.model.password) === true
                 &&
                 this.logic.checkEmailValidation(this.model.email) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                 this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
-                this.logic.checkStringIsEmpty(this.model.experience)=== true
+                this.logic.checkStringIsEmpty(this.model.experience) === true
             ) {
                 this.functionResult()
             }
@@ -352,7 +407,8 @@ Controller.prototype.showTip = function (id) {
             this.tooltip.style.top = '550px';
             this.tooltip.style.left = '980px';
             break;
-        default : break;
+        default :
+            break;
     }
 };
 
