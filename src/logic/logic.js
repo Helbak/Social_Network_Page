@@ -11,7 +11,7 @@ Logic.prototype.checkUsernameLength = function (username) {
 };
 
 Logic.prototype.checkUsernameValidation = function (username) {
-    if (/^[a-zA-Z0-9!:,<>;@#$%^&*()\-_+=]+$/.test(username)) {
+    if (/^[a-zA-Z]+$/.test(username)) {
         return true
     } else {
         return false;

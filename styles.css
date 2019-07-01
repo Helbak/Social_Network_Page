@@ -58,6 +58,7 @@ table {
     left: 1000px;
     top: 0px;
     margin-left: 150px;
+
 }
 
 .left-buttons {
@@ -120,6 +121,7 @@ table {
     border: 1px solid black;
     border-radius: 20px;
     background: #eaeaea;
+    font-family: "Times New Roman";
 }
 
 .body__steps{
@@ -153,7 +155,8 @@ table {
     margin-left: 110px;
     border: none;
     background: none;
-    font-size: 20px;
+    font-size: 22px;
+    font-family: "Times New Roman";
 
 }
 
@@ -168,6 +171,7 @@ table {
     border-bottom: 1px solid black;
     font-size: 25px;
     padding-left: 5px;
+    font-family: "Times New Roman";
 }
 
 
@@ -228,15 +232,16 @@ table {
     z-index: 9999;
     position: absolute;
     display: none;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
     background-color: #e43618;
     padding: 10px 10px 10px 10px;
     color: black;
     text-align: left;
     opacity: 0.6;
     border-radius: 5px;
-    font-family: Arial, serif
+    font-family: "Times New Roman";
+    font-size: 12px;
 }
 
 .btn_back {

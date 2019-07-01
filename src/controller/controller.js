@@ -5,7 +5,6 @@ function Controller() {
 }
 
 Controller.prototype.init = function (a) {
-
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep1();
 
@@ -76,27 +75,22 @@ Controller.prototype.init = function (a) {
 
 
     password.addEventListener('keyup', function () {
-
             if (this.logic.checkConfirm(password.value, confirm.value) === true) {
                 this.redDrawer("confirmArea", 'blue');
             }
             if (this.logic.checkConfirm(password.value, confirm.value) === false) {
                 this.redDrawer("confirmArea", 'red');
             }
-
-
             if (this.logic.checkPasswordLength(password.value) !== false && this.logic.checkPasswordValidation(password.value) === true) {
                 this.redDrawer("passwordArea", 'blue');
                 this.model.setPassword(password.value);
                 this.hideTip();
             }
-
             if (this.logic.checkPasswordLength(password.value) === false || this.logic.checkPasswordValidation(password.value) === false) {
                 this.redDrawer("passwordArea", 'red');
                 this.model.setPassword('');
                 this.showTip("password");
             }
-
         }.bind(this),
         false);
 
@@ -130,7 +124,6 @@ Controller.prototype.init = function (a) {
         }.bind(this),
         false);
 
-
     phone.addEventListener('keyup', function () {
             if (this.logic.checkPhoneNumberValidation(phone.value) === true) {
                 this.redDrawer("phoneArea", 'blue');
@@ -152,7 +145,6 @@ Controller.prototype.init = function (a) {
         }.bind(this),
         false);
 };
-
 Controller.prototype.functionStep2 = function () {
 
     const indev = document.getElementById('indev');
@@ -173,9 +165,11 @@ Controller.prototype.functionStep2 = function () {
                 this.model.setName(name.value);
                 this.model.name = name.value;
                 this.redDrawer("nameArea", "blue");
+                this.hideTip();
             }
             if (this.logic.checkNameValidation(name.value) === false) {
                 this.redDrawer("nameArea", "red");
+                this.showTip("nameArea");
             }
         }.bind(this),
         false);
@@ -185,9 +179,11 @@ Controller.prototype.functionStep2 = function () {
                 this.model.setSurname(surname.value);
                 this.model.name = surname.value;
                 this.redDrawer("surnameArea", "blue");
+                this.hideTip();
             }
             if (this.logic.checkNameValidation(surname.value) === false) {
                 this.redDrawer("surnameArea", "red");
+                this.showTip("surnameArea");
             }
         }.bind(this),
         false);
@@ -278,11 +274,17 @@ Controller.prototype.functionStep3 = function () {
             this.functionStep2();
         }.bind(this),
         false);
+
     checkboxRules.addEventListener('change', function () {
+        if (this.model.setRulesBox(checkboxRules.checked) === true) {
+            this.hideTip();
+        } else {
+            this.showTip("checkboxRules");
+        }
             this.model.setRulesBox(checkboxRules.checked);
-            console.log("checkboxRules.checked  " + checkboxRules.checked);
         }.bind(this),
         false);
+
     const btnRules = document.getElementById('btnRules');
     btnRules.addEventListener('click', function () {
             this.functionRules();
@@ -406,6 +408,24 @@ Controller.prototype.showTip = function (id) {
             this.tooltip.innerHTML = this.model.phoneTipString;
             this.tooltip.style.top = '550px';
             this.tooltip.style.left = '980px';
+            break;
+        case('nameArea'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.nameTipString;
+            this.tooltip.style.top = '300px';
+            this.tooltip.style.left = '980px';
+            break;
+        case('surnameArea'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.surnameTipString;
+            this.tooltip.style.top = '380px';
+            this.tooltip.style.left = '980px';
+            break;
+        case('checkboxRules'):
+            this.tooltip.style.display = 'block';
+            this.tooltip.innerHTML = this.model.checkBoxTipString;
+            this.tooltip.style.top = '450px';
+            this.tooltip.style.left = '528px';
             break;
         default :
             break;

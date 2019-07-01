@@ -16,16 +16,17 @@ function Model() {
     this.experiences = ['0 - 1 years', '1 - 2 years', '2 - 3 years', '3 - 4 years', '4 and more years'];
     this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea', 'nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
     this.usernameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
-    this.passwordTipString = 'password must have from 6 to 30 characters, including one digit, one letter of the upper register, one letter of the lower register';
+    this.passwordTipString = 'Password must have from 6 to 30 characters, including one digit, one letter of the upper register, one letter of the lower register';
     this.confirmTipString = 'Passwords do not match';
     this.emailTipString = 'You entered an invalid email';
-    this.phoneTipString = 'enter first sign "+" then USA code "+1" and 12 digits or Israel code "+972" and 9 digits or Ukrainian code "+380" and 9 digits';
-    this.nameTipString = '';
-    this.surnameTipString = '';
+    this.phoneTipString = 'Enter first sign "+" then USA code "+1" and 12 digits or Israel code "+972" and 9 digits or Ukrainian code "+380" and 9 digits';
+    this.nameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
+    this.surnameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
     this.genderTipString = '';
     this.relationTipString = '';
     this.progrLangTipString = '';
     this.experienceTipString = '';
+    this.checkBoxTipString = 'Do you agree?';
 
 
     this.stringStep1 = "<div class=\"body__steps\">Step 1 of 3</div>\n" +
@@ -54,7 +55,7 @@ function Model() {
         "    <span class=\"step1 span\" id='surnameArea'>Surname</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"surname\">\n" +
         "    <span class=\"step1 span\" id='genderArea' >Gender</span>\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"gender\" list=\"l3\">\n" +
+        "    <input class=\"step1 input\" type=\"text\" id=\"gender\" style=\"font-family: 'Times New Roman'\" list=\"l3\">\n" +
         "    <datalist id=\"l3\">\n" +
         "        \n" +
         "        <option>female</option>\n" +
@@ -63,7 +64,7 @@ function Model() {
         "\n" +
         "\n" +
         "    <span class=\"step1 span\" id='relationArea' >Relationship status</span>\n" +
-        "     <input class=\"step1 input\" type=\"text\" id=\"relation\" list=\"l4\">\n" +
+        "     <input class=\"step1 input\" type=\"text\" id=\"relation\" style=\"font-family: 'Times New Roman'\" list=\"l4\">\n" +
         "    <datalist id=\"l4\">\n" +
         "        <option>divorced</option>\n" +
         "        \n" +
@@ -81,25 +82,26 @@ function Model() {
         "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
         "</div>\n";
 
-    this.stringStep3 = "<div class=\"body__step1\">\n" +
+    this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
+        "    <div class=\"body__title\">Create an Account</div>\n" +
+        "    <div class=\"body__step1\">\n" +
         "        <span  class=\"step1 span\" id='progrLangArea'>Programming languages*</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" list=\"l1\">\n" +
+        "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">\n" +
         "        <datalist id=\"l1\">\n" +
-        "\n" +
-        "            <option>Java</option>\n" +
         "            <option>C</option>\n" +
         "            <option>C++</option>\n" +
         "            <option>C#</option>\n" +
+        "            <option>Java</option>\n" +
         "            <option>JavaScript</option>\n" +
+        "            <option>Matlab</option>\n" +
         "            <option>PHP</option>\n" +
         "            <option>Ruby</option>\n" +
-        "            <option>Matlab</option>\n" +
         "            <option>Python</option>\n" +
         "            <option>R</option>\n" +
         "            <option>Swift</option>\n" +
         "        </datalist>\n" +
         "        <span  class=\"step1 span\" id='experienceArea'>Work experience*</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"experience\" list=\"l2\">\n" +
+        "        <input class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\" list=\"l2\">\n" +
         "        <datalist id=\"l2\">\n" +
         "           <option>0 - 1 years</option>\n" +
         "            <option>1 - 2 years</option>\n" +
@@ -121,7 +123,8 @@ function Model() {
         "        <div class=\"body__register\">\n" +
         "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
         "        </div>\n" +
-        "    </div>";
+        "    </div>\n" +
+        "</div>";
 
     this.stringResult = "<div class=\"body__title\">Successful registration</div>\n" +
         "<div class=\"body__step1\">\n" +
