@@ -33,7 +33,7 @@ Controller.prototype.init = function (a) {
         if (this.logic.checkConfirm(this.model.password, this.model.confirm) === true) {
             this.redDrawer("confirmArea", 'blue');
         }
-        if (this.logic.checkConfirm(this.model.password, this.model.confirm) === false) {
+        if (this.logic.checkConfirm(this.model.password, this.model.confirm) === false || this.model.password === '') {
             this.redDrawer("confirmArea", 'red');
             this.model.confirm = '';
         }
@@ -141,7 +141,7 @@ Controller.prototype.init = function (a) {
     const nextFromStep1 = document.getElementById("nextButton");
     nextFromStep1.addEventListener('click', function () {
             this.hideTip();
-            this.functionStep2();
+            this.functionStep2(0);
         }.bind(this),
         false);
 };
@@ -154,11 +154,42 @@ Controller.prototype.functionStep2 = function () {
     const gender = document.getElementById('gender');
     const relation = document.getElementById('relation');
 
+    if (this.model.countStep2 > 1) {
+        if (this.logic.checkNameValidation(this.model.name) === true) {
+            this.redDrawer("nameArea", "blue");
+        }
+        if (this.logic.checkNameValidation(this.model.name) === false) {
+            this.redDrawer("nameArea", "red");
+            this.model.name = '';
+        }
+        if (this.logic.checkNameValidation(this.model.surname) === true) {
+            this.redDrawer("surnameArea", "blue");
+        }
+        if (this.logic.checkNameValidation(this.model.surname) === false) {
+            this.redDrawer("surnameArea", "red");
+            this.model.surname = '';
+        }
+        if(this.model.gender===''){
+            this.redDrawer("genderArea", "red");
+        }
+        if(this.model.gender!==''){
+            this.redDrawer("genderArea", "blue");
+        }
+        if(this.model.relation===''){
+            this.redDrawer("relationArea", "red");
+        }
+        if(this.model.relation!==''){
+            this.redDrawer("relationArea", "blue");
+        }
+    }
+    ;
+
+
     name.value = this.model.name;
     surname.value = this.model.surname;
     gender.value = this.model.gender;
     relation.value = this.model.relation;
-
+    this.model.setCountStep2(2);
 
     name.addEventListener('keyup', function () {
             if (this.logic.checkNameValidation(name.value) === true) {
@@ -169,6 +200,7 @@ Controller.prototype.functionStep2 = function () {
             }
             if (this.logic.checkNameValidation(name.value) === false) {
                 this.redDrawer("nameArea", "red");
+                this.model.name ='';
                 this.showTip("nameArea");
             }
         }.bind(this),
@@ -177,13 +209,14 @@ Controller.prototype.functionStep2 = function () {
     surname.addEventListener('keyup', function () {
             if (this.logic.checkNameValidation(surname.value) === true) {
                 this.model.setSurname(surname.value);
-                this.model.name = surname.value;
+                this.model.surname = surname.value;
                 this.redDrawer("surnameArea", "blue");
                 this.hideTip();
             }
             if (this.logic.checkNameValidation(surname.value) === false) {
                 this.redDrawer("surnameArea", "red");
-                this.showTip("surnameArea");
+                this.model.surname = '';
+                    this.showTip("surnameArea");
             }
         }.bind(this),
         false);
@@ -237,10 +270,27 @@ Controller.prototype.functionStep3 = function () {
     const backButtonFromStep3 = document.getElementById('backButtonFromStep3');
     const registerButton = document.getElementById('registerButton');
 
+    if (this.model.countStep3 > 1) {
+
+        if(this.model.progrLang===''){
+            this.redDrawer("progrLangArea", "red");
+        }
+        if(this.model.progrLang!==''){
+            this.redDrawer("progrLangArea", "blue");
+        }
+        if(this.model.experience===''){
+            this.redDrawer("experienceArea", "red");
+        }
+        if(this.model.experience!==''){
+            this.redDrawer("experienceArea", "blue");
+        }
+    }
+    ;
+
     progrLang.value = this.model.progrLang;
     experience.value = this.model.experience;
     checkboxRules.checked = this.model.rulesBox;
-
+    this.model.setCountStep3(2);
     progrLang.addEventListener('change', function () {
             this.model.setProgrLang(progrLang.value);
             this.redDrawer("progrLangArea", "blue");
@@ -276,11 +326,11 @@ Controller.prototype.functionStep3 = function () {
         false);
 
     checkboxRules.addEventListener('change', function () {
-        if (this.model.setRulesBox(checkboxRules.checked) === true) {
-            this.hideTip();
-        } else {
-            this.showTip("checkboxRules");
-        }
+            if (this.model.setRulesBox(checkboxRules.checked) === true) {
+                this.hideTip();
+            } else {
+                this.showTip("checkboxRules");
+            }
             this.model.setRulesBox(checkboxRules.checked);
         }.bind(this),
         false);
@@ -439,13 +489,14 @@ Controller.prototype.showPhoneTip = function () {
         this.tooltip.style.top = '570px';
         this.tooltip.style.left = '980px';
         //подсказка про длину цифр ниже
-    } else if (phone.value.substring(0,2) === '+1' || phone.value.substring(0,4) === '+380' || phone.value.substring(0,4) === '+972') {
+    } else if (phone.value.substring(0, 2) === '+1' || phone.value.substring(0, 4) === '+380' || phone.value.substring(0, 4) === '+972') {
         this.tooltip.style.display = 'block';
         this.tooltip.innerHTML = this.model.phoneTipString3;
         this.tooltip.style.top = '570px';
         this.tooltip.style.left = '980px';
         //подсказка про только цифры ниже
-    } if (phone.value[0] === '+' && /[А-Яа-яA-Za-z  ]+$/.test(phone.value)) {
+    }
+    if (phone.value[0] === '+' && /[А-Яа-яA-Za-z  ]+$/.test(phone.value)) {
         this.tooltip.style.display = 'block';
         this.tooltip.innerHTML = this.model.phoneTipString4;
         this.tooltip.style.top = '570px';

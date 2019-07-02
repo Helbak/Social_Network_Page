@@ -11,6 +11,8 @@ function Model() {
     this.experience = "";
     this.progrLang = "";
     this.rules;
+    this.countStep2=1;
+    this.countStep3=1;
     this.rulesBox=false;
     this.languages = ['Java', 'C', 'C++', 'C#', 'JavaScript', 'PHP', 'Ruby', 'Matlab', 'Python', 'R', 'Swift'];
     this.experiences = ['0 - 1 years', '1 - 2 years', '2 - 3 years', '3 - 4 years', '4 and more years'];
@@ -156,9 +158,6 @@ function Model() {
         "    <input class=\"step1 input\" type=\"text\" id=\"experienceResult\">\n" +
         "\n" +
         "\n" +
-        "</div>\n" +
-        "<div class=\"body__back\">\n" +
-        "    <button class=\"back\" id=\"backButtonFromResult\">Back</button>\n" +
         "</div>";
     this.rules = "<div class=\"body__title\">Rules</div>\n" +
         "<div class=\"body__step1\">\n" +
@@ -269,8 +268,12 @@ Model.prototype.setRulesBox = function (rulesBox) {
 Model.prototype.getArea = function () {
     return this.rules;
 };
-
-
+Model.prototype.setCountStep2 = function (countStep2) {
+    return this.countStep2 = countStep2;
+};
+Model.prototype.setCountStep3 = function (countStep3) {
+    return this.countStep3 = countStep3;
+};
 
 
 
