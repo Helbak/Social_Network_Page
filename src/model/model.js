@@ -19,7 +19,10 @@ function Model() {
     this.passwordTipString = 'Password must have from 6 to 30 characters, including one digit, one letter of the upper register, one letter of the lower register';
     this.confirmTipString = 'Passwords do not match';
     this.emailTipString = 'You entered an invalid email';
-    this.phoneTipString = 'Enter first sign "+" then USA code "+1" and 12 digits or Israel code "+972" and 9 digits or Ukrainian code "+380" and 9 digits';
+    this.phoneTipString1 = 'Enter the first sign "+"';
+    this.phoneTipString2 = 'Enter the code of Ukraine or Israel or the United States';
+    this.phoneTipString3 = 'The number of digits should be 12';
+    this.phoneTipString4 = 'Enter only numbers';
     this.nameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
     this.surnameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
     this.genderTipString = '';

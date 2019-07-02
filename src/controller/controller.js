@@ -133,7 +133,7 @@ Controller.prototype.init = function (a) {
             if (this.logic.checkPhoneNumberValidation(phone.value) === false) {
                 this.redDrawer("phoneArea", 'red');
                 this.model.setPhone('');
-                this.showTip("phone");
+                this.showPhoneTip();
             }
         }.bind(this),
         false);
@@ -403,12 +403,6 @@ Controller.prototype.showTip = function (id) {
             this.tooltip.style.top = '500px';
             this.tooltip.style.left = '980px';
             break;
-        case('phone'):
-            this.tooltip.style.display = 'block';
-            this.tooltip.innerHTML = this.model.phoneTipString;
-            this.tooltip.style.top = '550px';
-            this.tooltip.style.left = '980px';
-            break;
         case('nameArea'):
             this.tooltip.style.display = 'block';
             this.tooltip.innerHTML = this.model.nameTipString;
@@ -429,6 +423,33 @@ Controller.prototype.showTip = function (id) {
             break;
         default :
             break;
+    }
+};
+
+Controller.prototype.showPhoneTip = function () {
+    if (phone.value[0] !== '+') {
+        this.tooltip.style.display = 'block';
+        this.tooltip.innerHTML = this.model.phoneTipString1;
+        this.tooltip.style.top = '570px';
+        this.tooltip.style.left = '980px';
+        //подсказка про коды ниже
+    } else if (phone.value[0] === '+' && phone.value !== '+1' && phone.value !== '+380' && phone.value !== '+972' && phone.value.length < 5) {
+        this.tooltip.style.display = 'block';
+        this.tooltip.innerHTML = this.model.phoneTipString2;
+        this.tooltip.style.top = '570px';
+        this.tooltip.style.left = '980px';
+        //подсказка про длину цифр ниже
+    } else if (phone.value.substring(0,2) === '+1' || phone.value.substring(0,4) === '+380' || phone.value.substring(0,4) === '+972') {
+        this.tooltip.style.display = 'block';
+        this.tooltip.innerHTML = this.model.phoneTipString3;
+        this.tooltip.style.top = '570px';
+        this.tooltip.style.left = '980px';
+        //подсказка про только цифры ниже
+    } if (phone.value[0] === '+' && /[А-Яа-яA-Za-z  ]+$/.test(phone.value)) {
+        this.tooltip.style.display = 'block';
+        this.tooltip.innerHTML = this.model.phoneTipString4;
+        this.tooltip.style.top = '570px';
+        this.tooltip.style.left = '980px';
     }
 };
 
