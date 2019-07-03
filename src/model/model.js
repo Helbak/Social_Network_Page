@@ -59,24 +59,23 @@ function Model() {
         "    <input class=\"step1 input\" type=\"text\" id=\"name\">\n" +
         "    <span class=\"step1 span\" id='surnameArea'>Surname</span>\n" +
         "    <input class=\"step1 input\" type=\"text\" id=\"surname\">\n" +
-        "    <span class=\"step1 span\" id='genderArea' >Gender</span>\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"gender\" style=\"font-family: 'Times New Roman'\" list=\"l3\">\n" +
-        "    <datalist id=\"l3\">\n" +
-        "        \n" +
-        "        <option>female</option>\n" +
-        "        <option>male</option>\n" +
-        "    </datalist>\n" +
+        "    <span class=\"step1 span\" id='genderArea'>Gender</span>\n" +
         "\n" +
-        "\n" +
-        "    <span class=\"step1 span\" id='relationArea' >Relationship status</span>\n" +
-        "     <input class=\"step1 input\" type=\"text\" id=\"relation\" style=\"font-family: 'Times New Roman'\" list=\"l4\">\n" +
-        "    <datalist id=\"l4\">\n" +
-        "        <option>divorced</option>\n" +
-        "        \n" +
-        "        <option>married</option>\n" +
-        "        <option>single</option>\n" +
-        "    </datalist>\n" +
-        "\n" +
+        "    <select class=\"step1 input\" type=\"text\" id=\"gender\" style=\"font-family: 'Times New Roman'\">\n" +
+        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option value=\"female\">female</option>\n" +
+        "        <option value=\"male\">male</option>\n" +
+        "    </select>\n" +
+        "</div>\n" +
+        "<span class=\"step1 span\" id='relationArea'>Relationship status</span>\n" +
+        "<div>\n" +
+        "    <select class=\"step1 input\" type=\"text\" id=\"relation\" style=\"font-family: 'Times New Roman'\">\n" +
+        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option value=\"divorced\">divorced</option>\n" +
+        "        <option value=\"married\">married</option>\n" +
+        "        <option value=\"single\">single</option>\n" +
+        "    </select>\n" +
+        "</div>\n" +
         "\n" +
         "\n" +
         "</div>\n" +
@@ -85,16 +84,31 @@ function Model() {
         "</div>\n" +
         "<div class=\"body__next\">\n" +
         "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
-        "</div>\n";
+        "</div>";
 
     this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
         "    <div class=\"body__title\">Create an Account</div>\n" +
         "    <div class=\"body__step1\">\n" +
         "        <span  class=\"step1 span\" id='progrLangArea'>Programming languages*</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">\n" +
-        "        <datalist id=\"l1\">\n" +
+        "<!--        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">-->\n" +
+        "<!--        <datalist id=\"l1\">-->\n" +
+        "<!--            <option>C</option>-->\n" +
+        "<!--            <option >C++</option>-->\n" +
+        "<!--            <option>C#</option>-->\n" +
+        "<!--            <option>Java</option>-->\n" +
+        "<!--            <option>JavaScript</option>-->\n" +
+        "<!--            <option>Matlab</option>-->\n" +
+        "<!--            <option>PHP</option>-->\n" +
+        "<!--            <option>Ruby</option>-->\n" +
+        "<!--            <option>Python</option>-->\n" +
+        "<!--            <option>R</option>-->\n" +
+        "<!--            <option>Swift</option>-->\n" +
+        "<!--        </datalist>-->\n" +
+        "\n" +
+        "        <select data-placeholder=\" \" multiple class=\"chosen-select\" id='progrLang' name=\"test\" placeholder = \"\" style=\"width: 400px;\">\n" +
+        "            <option value=\"\"></option>\n" +
         "            <option>C</option>\n" +
-        "            <option >C++</option>\n" +
+        "            <option>C++</option>\n" +
         "            <option>C#</option>\n" +
         "            <option>Java</option>\n" +
         "            <option>JavaScript</option>\n" +
@@ -103,17 +117,31 @@ function Model() {
         "            <option>Ruby</option>\n" +
         "            <option>Python</option>\n" +
         "            <option>R</option>\n" +
-        "            <option>Swift</option>\n" +
-        "        </datalist>\n" +
+        "        </select>\n" +
+        "\n" +
+        "\n" +
+        "<!--        <script>-->\n" +
+        "<!--            $(\".chosen-select\").chosen({})-->\n" +
+        "<!--        </script>-->\n" +
+        "\n" +
+        "\n" +
         "        <span  class=\"step1 span\" id='experienceArea'>Work experience*</span>\n" +
-        "        <input class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\" list=\"l2\">\n" +
-        "        <datalist id=\"l2\">\n" +
-        "           <option>0 - 1 years</option>\n" +
-        "            <option>1 - 2 years</option>\n" +
-        "            <option>2 - 3 years</option>\n" +
-        "            <option>3 - 4 years</option>\n" +
-        "            <option>4 and more years</option>\n" +
-        "        </datalist>\n" +
+        "<!--        <input class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\" list=\"l2\">-->\n" +
+        "<!--        <datalist id=\"l2\">-->\n" +
+        "<!--           <option>0 - 1 years</option>-->\n" +
+        "<!--            <option>1 - 2 years</option>-->\n" +
+        "<!--            <option>2 - 3 years</option>-->\n" +
+        "<!--            <option>3 - 4 years</option>-->\n" +
+        "<!--            <option>4 and more years</option>-->\n" +
+        "<!--        </datalist>-->\n" +
+        "        <select class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\">\n" +
+        "            <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "            <option value=\"0-1 years\">0-1 years</option>\n" +
+        "            <option  value=\"1-2 years\">1-2 years</option>\n" +
+        "            <option  value=\"2-3 years\">2-3 years</option>\n" +
+        "            <option  value=\"3-4 years\">3-4 years</option>\n" +
+        "            <option  value=\"4 and more years\">4 and more years</option>\n" +
+        "        </select>\n" +
         "        <div class=\"step1 checkbox\">\n" +
         "            <input type=\"checkbox\" id = \"checkboxRules\" value=\"true\">\n" +
         "            <label for=\"checkbox\">Accept the <a href=\"#\" id=\"btnRules\">registration</a> rules</label>\n" +
@@ -134,7 +162,6 @@ function Model() {
         "        </div>\n" +
         "    </div>";
 
-    this.stringResult = "<div class=\"body__title\">Successful registration!</div>\n";
     this.rules = "<div class=\"body__title\">Rules</div>\n" +
         "<div class=\"body__step1\">\n" +
         "\n" +
@@ -142,8 +169,6 @@ function Model() {
         "<div class=\"body__back\">\n" +
         "    <button class=\"back\" id=\"backButtonFromRules\">Back</button>\n" +
         "</div>";
-
-
 };
 
 Model.prototype.getResult = function () {

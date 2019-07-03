@@ -5,23 +5,23 @@
     <input class="step1 input" type="text" id="name">
     <span class="step1 span" id='surnameArea'>Surname</span>
     <input class="step1 input" type="text" id="surname">
-    <span class="step1 span" id='genderArea' >Gender</span>
-    <input class="step1 input" type="text" id="gender" list="l3">
-    <datalist id="l3">
-        <option>female</option>
-        <option>male</option>
-    </datalist>
+    <span class="step1 span" id='genderArea'>Gender</span>
 
-
-    <span class="step1 span" id='relationArea' >Relationship status</span>
-     <input class="step1 input" type="text" id="relation" style="font-family: 'Times New Roman'" list="l4">
-    <datalist id="l4">
-        <option>divorced</option>
-
-        <option>married</option>
-        <option>single</option>
-    </datalist>
-
+    <select class="step1 input" type="text" id="gender" style="font-family: 'Times New Roman'">
+        <option selected disabled hidden="" value=""></option>
+        <option value="female">female</option>
+        <option value="male">male</option>
+    </select>
+</div>
+<span class="step1 span" id='relationArea'>Relationship status</span>
+<div>
+    <select class="step1 input" type="text" id="relation" style="font-family: 'Times New Roman'">
+        <option selected disabled hidden="" value=""></option>
+        <option value="divorced">divorced</option>
+        <option value="married">married</option>
+        <option value="single">single</option>
+    </select>
+</div>
 
 
 </div>

@@ -229,7 +229,7 @@ Controller.prototype.functionStep2 = function () {
     gender.addEventListener('keyup', function () {
             if (this.logic.checkListGender(gender.value) === false) {
                 gender.value = '';
-                this.model.setGender(gender.value);
+                this.model.setGender(gender.selectedIndex);
                 this.redDrawer("genderArea", "black");
             }
         }.bind(this),
@@ -264,13 +264,19 @@ Controller.prototype.functionStep2 = function () {
 };
 Controller.prototype.functionStep3 = function () {
 
+
+
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep3();
+    $(".chosen-select").chosen({});
     const progrLang = document.getElementById('progrLang');
     const experience = document.getElementById('experience');
     const checkboxRules = document.getElementById('checkboxRules');
     const backButtonFromStep3 = document.getElementById('backButtonFromStep3');
     const registerButton = document.getElementById('registerButton');
+
+    console.log('const progrLang =   '+progrLang.value);
+
     registerButton.disabled=true;
     if (
         this.model.rulesBox === true
@@ -438,6 +444,9 @@ Controller.prototype.functionStep3 = function () {
                 this.showTip("checkboxRules");
             }
             this.model.setRulesBox(checkboxRules.checked);
+           if (checkboxRules.checked === false){
+               registerButton.disabled=true;
+           }
         }.bind(this),
         false);
 
