@@ -166,7 +166,7 @@ Controller.prototype.functionStep2 = function () {
             this.redDrawer("surnameArea", "blue");
         }
         if (this.logic.checkNameValidation(this.model.surname) === false) {
-            this.redDrawer("surnameArea", "red");
+            // this.redDrawer("surnameArea", "red");
             this.model.surname = '';
         }
         // if(this.model.gender===''){
@@ -498,31 +498,31 @@ Controller.prototype.functionRules = function () {
 };
 Controller.prototype.functionResult = function () {
     // window.open('successedRegistr.html');
-    const indev = document.getElementById('indev');
-    indev.innerHTML = this.model.getResult();
-    const usernameResult = document.getElementById("usernameResult");
-    const passwordResult = document.getElementById("passwordResult");
-    const confirmResult = document.getElementById("confirmResult");
-    const emailResult = document.getElementById("emailResult");
-    const phoneResult = document.getElementById("phoneResult");
-    const nameResult = document.getElementById("nameResult");
-    const surnameResult = document.getElementById("surnameResult");
-    const genderResult = document.getElementById("genderResult");
-    const relationResult = document.getElementById("relationResult");
-    const progrLangResult = document.getElementById("progrLangResult");
-    const experienceResult = document.getElementById("experienceResult");
-
-    usernameResult.value = "username: " + this.model.username;
-    passwordResult.value = "password: " + this.model.password;
-    confirmResult.value = "confirm: " + this.model.confirm;
-    emailResult.value = "email: " + this.model.email;
-    phoneResult.value = "phone: " + this.model.phone;
-    nameResult.value = "name: " + this.model.name;
-    genderResult.value = "gender: " + this.model.gender;
-    surnameResult.value = "surname: " + this.model.surname;
-    relationResult.value = "relation: " + this.model.relation;
-    progrLangResult.value = "progrLang: " + this.model.progrLang;
-    experienceResult.value = "experience: " + this.model.experience;
+    // const indev = document.getElementById('indev');
+    // indev.innerHTML = this.model.getResult();
+    // const usernameResult = document.getElementById("usernameResult");
+    // const passwordResult = document.getElementById("passwordResult");
+    // const confirmResult = document.getElementById("confirmResult");
+    // const emailResult = document.getElementById("emailResult");
+    // const phoneResult = document.getElementById("phoneResult");
+    // const nameResult = document.getElementById("nameResult");
+    // const surnameResult = document.getElementById("surnameResult");
+    // const genderResult = document.getElementById("genderResult");
+    // const relationResult = document.getElementById("relationResult");
+    // const progrLangResult = document.getElementById("progrLangResult");
+    // const experienceResult = document.getElementById("experienceResult");
+    //
+    // usernameResult.value = "username: " + this.model.username;
+    // passwordResult.value = "password: " + this.model.password;
+    // confirmResult.value = "confirm: " + this.model.confirm;
+    // emailResult.value = "email: " + this.model.email;
+    // phoneResult.value = "phone: " + this.model.phone;
+    // nameResult.value = "name: " + this.model.name;
+    // genderResult.value = "gender: " + this.model.gender;
+    // surnameResult.value = "surname: " + this.model.surname;
+    // relationResult.value = "relation: " + this.model.relation;
+    // progrLangResult.value = "progrLang: " + this.model.progrLang;
+    // experienceResult.value = "experience: " + this.model.experience;
 
     // const backButtonFromResult = document.getElementById("backButtonFromResult");
     // backButtonFromResult.addEventListener('click', function () {

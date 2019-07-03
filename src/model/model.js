@@ -87,66 +87,53 @@ function Model() {
         "</div>";
 
     this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
-        "    <div class=\"body__title\">Create an Account</div>\n" +
-        "    <div class=\"body__step1\">\n" +
-        "        <span  class=\"step1 span\" id='progrLangArea'>Programming languages*</span>\n" +
-        "<!--        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">-->\n" +
-        "<!--        <datalist id=\"l1\">-->\n" +
-        "<!--            <option>C</option>-->\n" +
-        "<!--            <option >C++</option>-->\n" +
-        "<!--            <option>C#</option>-->\n" +
-        "<!--            <option>Java</option>-->\n" +
-        "<!--            <option>JavaScript</option>-->\n" +
-        "<!--            <option>Matlab</option>-->\n" +
-        "<!--            <option>PHP</option>-->\n" +
-        "<!--            <option>Ruby</option>-->\n" +
-        "<!--            <option>Python</option>-->\n" +
-        "<!--            <option>R</option>-->\n" +
-        "<!--            <option>Swift</option>-->\n" +
-        "<!--        </datalist>-->\n" +
+        "<div class=\"body__title\">Create an Account</div>\n" +
+        "<div class=\"body__step1\">\n" +
+        "    <span  class=\"step1 span\" id='progrLangArea'>Programming languages*</span>\n" +
+        "    <!--        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">-->\n" +
+        "    <!--        <datalist id=\"l1\">-->\n" +
+        "    <!--            <option>C</option>-->\n" +
+        "    <!--            <option >C++</option>-->\n" +
+        "    <!--            <option>C#</option>-->\n" +
+        "    <!--            <option>Java</option>-->\n" +
+        "    <!--            <option>JavaScript</option>-->\n" +
+        "    <!--            <option>Matlab</option>-->\n" +
+        "    <!--            <option>PHP</option>-->\n" +
+        "    <!--            <option>Ruby</option>-->\n" +
+        "    <!--            <option>Python</option>-->\n" +
+        "    <!--            <option>R</option>-->\n" +
+        "    <!--            <option>Swift</option>-->\n" +
+        "    <!--        </datalist>-->\n" +
         "\n" +
-        "        <select data-placeholder=\" \" multiple class=\"chosen-select\" id='progrLang' name=\"test\" placeholder = \"\" style=\"width: 400px;\">\n" +
-        "            <option value=\"\"></option>\n" +
-        "            <option>C</option>\n" +
-        "            <option>C++</option>\n" +
-        "            <option>C#</option>\n" +
-        "            <option>Java</option>\n" +
-        "            <option>JavaScript</option>\n" +
-        "            <option>Matlab</option>\n" +
-        "            <option>PHP</option>\n" +
-        "            <option>Ruby</option>\n" +
-        "            <option>Python</option>\n" +
-        "            <option>R</option>\n" +
-        "        </select>\n" +
+        "    <select class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\">\n" +
+        "        <option value=\"\"></option>\n" +
+        "        <option value=\"C\">C</option>\n" +
+        "        <option value=\"C++\">C++</option>\n" +
+        "        <option value=\"C#\">C#</option>\n" +
+        "        <option value=\"Java\">Java</option>\n" +
+        "        <option value=\"JavaScript\">JavaScript</option>\n" +
+        "        <option value=\"Matlab\">Matlab</option>\n" +
+        "        <option value=\"PHP\">PHP</option>\n" +
+        "        <option value=\"Ruby\">Ruby</option>\n" +
+        "        <option value=\"Python\">Python</option>\n" +
+        "        <option value=\"R\">R</option>\n" +
+        "    </select>\n" +
+        "    \n" +
+        "    <span  class=\"step1 span\" id='experienceArea'>Work experience*</span>\n" +
+        "    \n" +
+        "    <select class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\">\n" +
+        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option value=\"0-1 years\">0-1 years</option>\n" +
+        "        <option  value=\"1-2 years\">1-2 years</option>\n" +
+        "        <option  value=\"2-3 years\">2-3 years</option>\n" +
+        "        <option  value=\"3-4 years\">3-4 years</option>\n" +
+        "        <option  value=\"4 and more years\">4 and more years</option>\n" +
+        "    </select>\n" +
+        "    <div class=\"step1 checkbox\">\n" +
+        "        <input type=\"checkbox\" id = \"checkboxRules\" value=\"true\">\n" +
+        "        <label for=\"checkbox\">Accept the <a href=\"#\" id=\"btnRules\">registration</a> rules</label>\n" +
         "\n" +
-        "\n" +
-        "<!--        <script>-->\n" +
-        "<!--            $(\".chosen-select\").chosen({})-->\n" +
-        "<!--        </script>-->\n" +
-        "\n" +
-        "\n" +
-        "        <span  class=\"step1 span\" id='experienceArea'>Work experience*</span>\n" +
-        "<!--        <input class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\" list=\"l2\">-->\n" +
-        "<!--        <datalist id=\"l2\">-->\n" +
-        "<!--           <option>0 - 1 years</option>-->\n" +
-        "<!--            <option>1 - 2 years</option>-->\n" +
-        "<!--            <option>2 - 3 years</option>-->\n" +
-        "<!--            <option>3 - 4 years</option>-->\n" +
-        "<!--            <option>4 and more years</option>-->\n" +
-        "<!--        </datalist>-->\n" +
-        "        <select class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\">\n" +
-        "            <option selected disabled hidden=\"\" value=\"\"></option>\n" +
-        "            <option value=\"0-1 years\">0-1 years</option>\n" +
-        "            <option  value=\"1-2 years\">1-2 years</option>\n" +
-        "            <option  value=\"2-3 years\">2-3 years</option>\n" +
-        "            <option  value=\"3-4 years\">3-4 years</option>\n" +
-        "            <option  value=\"4 and more years\">4 and more years</option>\n" +
-        "        </select>\n" +
-        "        <div class=\"step1 checkbox\">\n" +
-        "            <input type=\"checkbox\" id = \"checkboxRules\" value=\"true\">\n" +
-        "            <label for=\"checkbox\">Accept the <a href=\"#\" id=\"btnRules\">registration</a> rules</label>\n" +
-        "\n" +
-        "        </div>\n" +
+        "    </div>\n" +
         "\n" +
         "\n" +
         "\n" +
@@ -154,13 +141,13 @@ function Model() {
         "        <button class=\"back\" id=\"backButtonFromStep3\">Back</button>\n" +
         "    </div>\n" +
         "\n" +
-        "        <div class=\"body__register\">\n" +
-        "            <form action=\"successedRegistr.html\">\n" +
-        "                       <button class=\"register\" id=\"registerButton\">Register</button>\n" +
-        "            </form>\n" +
-        "        </div>\n" +
-        "        </div>\n" +
-        "    </div>";
+        "    <div class=\"body__register\">\n" +
+        "        <form action=\"successedRegistr.html\">\n" +
+        "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
+        "        </form>\n" +
+        "    </div>\n" +
+        "</div>\n" +
+        "</div>";
 
     this.rules = "<div class=\"body__title\">Rules</div>\n" +
         "<div class=\"body__step1\">\n" +
