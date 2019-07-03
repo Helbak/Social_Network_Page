@@ -186,7 +186,7 @@ a{
 
 .input{
     display: block;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-left: 110px;
     width: 300px;
     height: 25px;
@@ -288,3 +288,21 @@ a{
 .cbalink {
     visibility: hidden;
 }
+
+/*.chosen-choices {*/
+    /*margin: 0 0 0 110px;*/
+/*}*/
+
+/*.search-field{*/
+    /*display: block;*/
+    /*margin-top: 0px;*/
+    /*margin-left: 110px;*/
+    /*width: 300px;*/
+    /*height: 25px;*/
+    /*border: none;*/
+    /*background: linear-gradient(to bottom, rgba(179,220,237, 0.4) 0%, rgba(47,196,250, 0.4) 100%);*/
+    /*border-bottom: 1px solid black;*/
+    /*font-size: 22px;*/
+    /*padding-left: 5px;*/
+    /*font-family: "Times New Roman";*/
+/*}*/
