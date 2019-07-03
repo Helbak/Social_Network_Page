@@ -25,7 +25,7 @@ function Model() {
     this.phoneTipString2 = 'Enter the code of Ukraine or Israel or the United States';
     this.phoneTipString3 = 'The number of digits should be 12';
     this.phoneTipString4 = 'Enter only numbers';
-    this.nameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
+    this.nameTipString = 'Enter a name of at least 2 and no more than 40 characters, in Latin letters';
     this.surnameTipString = 'Enter a name of at least 2 and no more than 40 characters, in Latin letters';
     this.genderTipString = '';
     this.relationTipString = '';
