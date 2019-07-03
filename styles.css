@@ -11,8 +11,13 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
 }
+html{
+    overflow-x: hidden;
+    zoom: 100%;
+}
 body {
     line-height: 1.2;
+    background-image: url(images/image.png);
 }
 ol {
     padding-left: 1.4em;
@@ -29,14 +34,10 @@ table {
 /* end reset browser styles */
 
 .InDev {
-    width: 100%;
-    height: 760px;
-    /*margin: auto;*/
-    /*margin-left: 70px;*/
-    /*margin-top: 3px;*/
-    border: 0.1px solid black;
-    background-image: url(images/image.png);
-    position: fixed;
+    width: 1360px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
 }
 
 .InDev__header {
@@ -46,6 +47,7 @@ table {
     background: linear-gradient(to bottom, rgba(179,220,237, 0.2) 0%, rgba(47,196,250, 0.2) 100%);
     border-bottom: 0.1px solid black;
 }
+
 .header__left-buttons {
     position: absolute;
     left: 300px;
@@ -68,6 +70,7 @@ table {
     height: 80px;
     background-color: rgba(179,220,237, 0);
     font-size: 25px;
+    margin-left: -4px;
 }
 .left-buttons:hover {
     background: #5c5d5f;
@@ -93,6 +96,20 @@ table {
 }
 
 .signup {
+    cursor: pointer;
+    background: #5c5d5f;
+    color: white;
+    outline: none;
+    border: none;
+    display: block;
+    width: 210px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.loginEnd {
     cursor: pointer;
     background: #5c5d5f;
     color: white;
@@ -169,7 +186,7 @@ table {
     border: none;
     background: linear-gradient(to bottom, rgba(179,220,237, 0.4) 0%, rgba(47,196,250, 0.4) 100%);
     border-bottom: 1px solid black;
-    font-size: 12px;
+    font-size: 25px;
     padding-left: 5px;
     font-family: "Times New Roman";
 }

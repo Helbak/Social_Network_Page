@@ -1,5 +1,38 @@
-<!--<div class="body__steps">Step 1 of 3</div>&ndash;&gt;-->
-<div class="body__title">Successful registration</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>InDev</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="src/init.js" defer></script>
+    <script src="src/logic/logic.js"></script>
+    <script src="src/controller/controller.js"></script>
+    <script src="src/model/model.js"></script>
+
+</head>
+<body>
+<div class="InDev">
+    <div class="InDev__header" >
+        <img class="header__image" src="images/imageedit_10_7910118449.png">
+        <div class="header__left-buttons">
+            <form  action="mock.html">
+                <button class="left-buttons" id="info">Information</button>
+                <button class="left-buttons" id="forum">Forum</button>
+                <button class="left-buttons" id="contacts">Contacts</button>
+            </form>
+
+        </div>
+        <div class="header__right-buttons">
+            <form  action="mock.html">
+                <button class="right-buttons" id="login">Login</button>
+            </form>
+            <button class="right-buttons signup" id="signUp">Sign Up</button>
+        </div>
+    </div>
+    <div class="tooltip" id="tooltip" title=""></div>
+    <div class="InDev__body" id="indev">
+
+    <div class="body__title">Successful registration</div>
 <div class="body__step1">
 
     <input class="step1 input" type="text" id="usernameResult">
@@ -30,3 +63,9 @@
 <div class="body__back">
     <button class="back" id="backButtonFromResult">Back</button>
 </div>
+    </div>
+</div>
+
+</body>
+
+</html>

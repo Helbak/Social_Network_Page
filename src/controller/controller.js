@@ -269,6 +269,32 @@ Controller.prototype.functionStep3 = function () {
     const checkboxRules = document.getElementById('checkboxRules');
     const backButtonFromStep3 = document.getElementById('backButtonFromStep3');
     const registerButton = document.getElementById('registerButton');
+    registerButton.disabled=true;
+    if (
+        this.model.rulesBox === true
+        &&
+        this.logic.checkNameValidation(this.model.name) === true
+        &&
+        this.logic.checkUsernameValidation(this.model.username) === true
+        &&
+        this.logic.checkUsernameLength(this.model.username) === true
+        &&
+        this.logic.checkPasswordValidation(this.model.password) === true
+        &&
+        this.logic.checkPasswordOnlyLength(this.model.password) === true
+        &&
+        this.logic.checkConfirm(this.model.confirm, this.model.password) === true
+        &&
+        this.logic.checkEmailValidation(this.model.email) === true &&
+        this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+        this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+        this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+        this.logic.checkStringIsEmpty(this.model.experience) === true
+    ) {
+        registerButton.disabled=false;
+    }
+    ;
+
 
     if (this.model.countStep3 > 1) {
 
@@ -294,6 +320,31 @@ Controller.prototype.functionStep3 = function () {
     progrLang.addEventListener('change', function () {
             this.model.setProgrLang(progrLang.value);
             this.redDrawer("progrLangArea", "blue");
+            if (
+                this.model.rulesBox === true
+                &&
+                this.logic.checkNameValidation(this.model.name) === true
+                &&
+                this.logic.checkUsernameValidation(this.model.username) === true
+                &&
+                this.logic.checkUsernameLength(this.model.username) === true
+                &&
+                this.logic.checkPasswordValidation(this.model.password) === true
+                &&
+                this.logic.checkPasswordOnlyLength(this.model.password) === true
+                &&
+                this.logic.checkConfirm(this.model.confirm, this.model.password) === true
+                &&
+                this.logic.checkEmailValidation(this.model.email) === true &&
+                this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                this.logic.checkStringIsEmpty(this.model.experience) === true
+            ) {
+                registerButton.disabled=false;
+
+            }
+            ;
         }.bind(this),
         false);
     progrLang.addEventListener('keyup', function () {
@@ -308,6 +359,32 @@ Controller.prototype.functionStep3 = function () {
     experience.addEventListener('change', function () {
             this.model.setExperience(experience.value);
             this.redDrawer("experienceArea", "blue");
+            if (
+                this.model.rulesBox === true
+                &&
+                this.logic.checkNameValidation(this.model.name) === true
+                &&
+                this.logic.checkUsernameValidation(this.model.username) === true
+                &&
+                this.logic.checkUsernameLength(this.model.username) === true
+                &&
+                this.logic.checkPasswordValidation(this.model.password) === true
+                &&
+                this.logic.checkPasswordOnlyLength(this.model.password) === true
+                &&
+                this.logic.checkConfirm(this.model.confirm, this.model.password) === true
+                &&
+                this.logic.checkEmailValidation(this.model.email) === true &&
+                this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                this.logic.checkStringIsEmpty(this.model.experience) === true
+            ) {
+
+                registerButton.disabled=false;
+
+            }
+            ;
         }.bind(this),
         false);
     experience.addEventListener('keyup', function () {
@@ -328,6 +405,32 @@ Controller.prototype.functionStep3 = function () {
     checkboxRules.addEventListener('change', function () {
             if (this.model.setRulesBox(checkboxRules.checked) === true) {
                 this.hideTip();
+                if (
+                    this.model.rulesBox === true
+                    &&
+                    this.logic.checkNameValidation(this.model.name) === true
+                    &&
+                    this.logic.checkUsernameValidation(this.model.username) === true
+                    &&
+                    this.logic.checkUsernameLength(this.model.username) === true
+                    &&
+                    this.logic.checkPasswordValidation(this.model.password) === true
+                    &&
+                    this.logic.checkPasswordOnlyLength(this.model.password) === true
+                    &&
+                    this.logic.checkConfirm(this.model.confirm, this.model.password) === true
+                    &&
+                    this.logic.checkEmailValidation(this.model.email) === true &&
+                    this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                    this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
+                    this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                    this.logic.checkStringIsEmpty(this.model.experience) === true
+                ) {
+
+                    registerButton.disabled=false;
+
+                }
+                ;
             } else {
                 this.showTip("checkboxRules");
             }
@@ -364,7 +467,9 @@ Controller.prototype.functionStep3 = function () {
                 this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
                 this.logic.checkStringIsEmpty(this.model.experience) === true
             ) {
-                this.functionResult()
+
+                this.functionResult();
+
             }
             ;
         }.bind(this),
@@ -380,6 +485,7 @@ Controller.prototype.functionRules = function () {
         false);
 };
 Controller.prototype.functionResult = function () {
+    window.open('successedRegistr.html');
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getResult();
     const usernameResult = document.getElementById("usernameResult");
@@ -406,11 +512,11 @@ Controller.prototype.functionResult = function () {
     progrLangResult.value = "progrLang: " + this.model.progrLang;
     experienceResult.value = "experience: " + this.model.experience;
 
-    const backButtonFromResult = document.getElementById("backButtonFromResult");
-    backButtonFromResult.addEventListener('click', function () {
-            this.init();
-        }.bind(this),
-        false);
+    // const backButtonFromResult = document.getElementById("backButtonFromResult");
+    // backButtonFromResult.addEventListener('click', function () {
+    //         this.init();
+    //     }.bind(this),
+    //     false);
 };
 
 Controller.prototype.redDrawer = function (id, color) {
@@ -420,7 +526,8 @@ Controller.prototype.redDrawer = function (id, color) {
         area.style = "color: rgba(9, 1, 1, 0.95);";
     }
     if (color === 'red') {
-        area.style = "color: rgba(254, 27, 46, 0.95)";
+        // area.style = "color: rgba(254, 27, 46, 0.95)";
+        area.style = "color: rgba(255, 0, 0)";
     }
     if (color === 'blue') {
         area.style = "color:  rgba(55, 68, 206)";

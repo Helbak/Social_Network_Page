@@ -94,7 +94,7 @@ function Model() {
         "        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">\n" +
         "        <datalist id=\"l1\">\n" +
         "            <option>C</option>\n" +
-        "            <option>C++</option>\n" +
+        "            <option >C++</option>\n" +
         "            <option>C#</option>\n" +
         "            <option>Java</option>\n" +
         "            <option>JavaScript</option>\n" +
@@ -125,11 +125,14 @@ function Model() {
         "    <div class=\"body__back\">\n" +
         "        <button class=\"back\" id=\"backButtonFromStep3\">Back</button>\n" +
         "    </div>\n" +
+        "\n" +
         "        <div class=\"body__register\">\n" +
-        "            <button class=\"register\" id=\"registerButton\">Register</button>\n" +
+        "            <form action=\"successedRegistr.html\">\n" +
+        "                       <button class=\"register\" id=\"registerButton\">Register</button>\n" +
+        "            </form>\n" +
         "        </div>\n" +
-        "    </div>\n" +
-        "</div>";
+        "        </div>\n" +
+        "    </div>";
 
     this.stringResult = "<div class=\"body__title\">Successful registration</div>\n" +
         "<div class=\"body__step1\">\n" +
