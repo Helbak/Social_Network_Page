@@ -9,30 +9,24 @@
     <script src="src/logic/logic.js"></script>
     <script src="src/controller/controller.js"></script>
     <script src="src/model/model.js"></script>
-    <style>
-        a{
-            text-decoration: none;
-        }
-    </style>
 
 </head>
 <body>
-<div class="InDev">
-    <div class="InDev__header" >
+<div class="in-dev">
+    <div class="in-dev__header header">
         <img class="header__image" src="images/imageedit_10_7910118449.png">
-        <div class="header__left-buttons">
-            <a href="pages/information.html"><button class="left-buttons" id="info">Information</button></a>
-            <a href="pages/forum.html"><button class="left-buttons" id="forum">Forum</button></a>
-            <a href="pages/contacts.html"><button class="left-buttons" id="contacts">Contacts</button></a>
+        <div class="header__left left-buttons">
+            <a href="pages/information.html"><button class="left-buttons__info btn-styles-left" id="info">Information</button></a>
+            <a href="pages/forum.html"><button class="left-buttons__forum btn-styles-left" id="forum">Forum</button></a>
+            <a href="pages/contacts.html"><button class="left-buttons__contacts btn-styles-left" id="contacts">Contacts</button></a>
         </div>
-        <div class="header__right-buttons">
-            <a href="pages/login.html"><button class="right-buttons" id="login">Login</button></a>
-            <button class="right-buttons signup" id="signUp">Sign Up</button>
+        <div class="header__right right-buttons">
+            <a href="pages/login.html"><button class="right-buttons__login btn-styles-right" id="login">Login</button></a>
+            <button class="right-buttons__sign-up btn-styles-right" id="signUp">Sign Up</button>
         </div>
     </div>
-    <div class="tooltip" id="tooltip" title=""></div>
-    <div class="InDev__body" id="indev">
-    </div>
+    <div class="in-dev__tooltip" id="tooltip" title=""></div>
+    <div class="in-dev__body" id="indev"></div>
 </div>
 
 </body>
