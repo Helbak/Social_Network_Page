@@ -169,15 +169,15 @@ Controller.prototype.functionStep2 = function () {
             this.redDrawer("surnameArea", "red");
             this.model.surname = '';
         }
-        if(this.model.gender===''){
-            this.redDrawer("genderArea", "red");
-        }
+        // if(this.model.gender===''){
+        //     this.redDrawer("genderArea", "red");
+        // }
         if(this.model.gender!==''){
             this.redDrawer("genderArea", "blue");
         }
-        if(this.model.relation===''){
-            this.redDrawer("relationArea", "red");
-        }
+        // if(this.model.relation===''){
+        //     this.redDrawer("relationArea", "red");
+        // }
         if(this.model.relation!==''){
             this.redDrawer("relationArea", "blue");
         }
@@ -250,12 +250,14 @@ Controller.prototype.functionStep2 = function () {
     const backButtonFrom2 = document.getElementById("backButtonFrom2");
     backButtonFrom2.addEventListener('click', function () {
             this.init(2);
+            this.hideTip();
         }.bind(this),
         false);
     const nextButtonFrom2 = document.getElementById('nextButtonFrom2');
 
     nextButtonFrom2.addEventListener('click', function () {
             this.functionStep3();
+            this.hideTip();
         }.bind(this),
         false);
 
@@ -399,6 +401,7 @@ Controller.prototype.functionStep3 = function () {
 
     backButtonFromStep3.addEventListener('click', function () {
             this.functionStep2();
+            this.hideTip();
         }.bind(this),
         false);
 
@@ -485,7 +488,7 @@ Controller.prototype.functionRules = function () {
         false);
 };
 Controller.prototype.functionResult = function () {
-    window.open('successedRegistr.html');
+    // window.open('successedRegistr.html');
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getResult();
     const usernameResult = document.getElementById("usernameResult");

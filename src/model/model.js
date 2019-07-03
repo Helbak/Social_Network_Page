@@ -26,7 +26,7 @@ function Model() {
     this.phoneTipString3 = 'The number of digits should be 12';
     this.phoneTipString4 = 'Enter only numbers';
     this.nameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
-    this.surnameTipString = 'Enter a name of at least 1 and no more than 40 characters, in Latin letters';
+    this.surnameTipString = 'Enter a name of at least 2 and no more than 40 characters, in Latin letters';
     this.genderTipString = '';
     this.relationTipString = '';
     this.progrLangTipString = '';
@@ -134,34 +134,7 @@ function Model() {
         "        </div>\n" +
         "    </div>";
 
-    this.stringResult = "<div class=\"body__title\">Successful registration</div>\n" +
-        "<div class=\"body__step1\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"usernameResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"passwordResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"confirmResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"emailResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"tel\" id=\"phoneResult\">\n" +
-        "\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"nameResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"surnameResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"genderResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"relationResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"progrLangResult\">\n" +
-        "\n" +
-        "    <input class=\"step1 input\" type=\"text\" id=\"experienceResult\">\n" +
-        "\n" +
-        "\n" +
-        "</div>";
+    this.stringResult = "<div class=\"body__title\">Successful registration!</div>\n";
     this.rules = "<div class=\"body__title\">Rules</div>\n" +
         "<div class=\"body__step1\">\n" +
         "\n" +
