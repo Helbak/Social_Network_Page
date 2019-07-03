@@ -76,7 +76,7 @@ Logic.prototype.checkNameValidation = function (name) {
     if (name.length < 2 || name.length > 40) {
         return false;
     }
-    if (/^[a-zA-Z]+$/.test(name)) {
+    if (/^[A-Z]{1}[a-zA-Z]+$/.test(name)) {
         return true;
     } else {
         return false;

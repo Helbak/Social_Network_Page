@@ -255,7 +255,7 @@ a{
     color: white;
 }
 
-.tooltip {
+.in-dev__tooltip {
     z-index: 9999;
     position: absolute;
     display: none;
@@ -284,4 +284,7 @@ a{
     text-align: center;
     line-height: 58px;
     font-family: "Times New Roman";
+}
+.cbalink {
+    visibility: hidden;
 }

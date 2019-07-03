@@ -542,7 +542,7 @@ Controller.prototype.showTip = function (id) {
         case ('username'):
             this.tooltip.style.display = 'block';
             this.tooltip.innerHTML = this.model.usernameTipString;
-            this.tooltip.style.top = '300px';
+            this.tooltip.style.top = '315px';
             this.tooltip.style.left = '980px';
             break;
         case ('password'):
