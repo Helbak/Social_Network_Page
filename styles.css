@@ -197,9 +197,27 @@ a{
     padding-left: 5px;
     font-family: "Times New Roman";
 }
+.multilist{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+    margin-left: 110px;
+    width: 300px;
+    height: 25px;
+    border: none;
 
-
-
+}
+.multiright{
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 46px;
+    height: 28px;
+}
+.multileft{
+    margin-left: 0px;
+    width: 250px;
+    height: 25px;
+}
 .next {
     border-radius: 0px 40px 40px 0px;
     border: 6px double rgba(179,220,237, 1);

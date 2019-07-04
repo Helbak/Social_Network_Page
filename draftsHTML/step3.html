@@ -2,23 +2,12 @@
 <div class="body__title">Create an Account</div>
 <div class="body__step1">
     <span  class="step1 span" id='progrLangArea'>Programming languages*</span>
-    <!--        <input class="step1 input" type="text" id="progrLang" style="font-family: 'Times New Roman'" list="l1">-->
-    <!--        <datalist id="l1">-->
-    <!--            <option>C</option>-->
-    <!--            <option >C++</option>-->
-    <!--            <option>C#</option>-->
-    <!--            <option>Java</option>-->
-    <!--            <option>JavaScript</option>-->
-    <!--            <option>Matlab</option>-->
-    <!--            <option>PHP</option>-->
-    <!--            <option>Ruby</option>-->
-    <!--            <option>Python</option>-->
-    <!--            <option>R</option>-->
-    <!--            <option>Swift</option>-->
-    <!--        </datalist>-->
 
-    <select class="step1 input" type="text" id="progrLang" style="font-family: 'Times New Roman'">
-        <option value=""></option>
+<div class="multilist">
+    <input type="text" class="step1 input multileft" readonly="true" type="text" id="progrLangLeft" style="font-family: 'Times New Roman'">
+    <select  type="text" class="step1 input multiright" id="progrLangRight" style="font-family: 'Times New Roman'">
+        <option selected disabled hidden="" value=""></option>
+        <option value="No one">No one</option>
         <option value="C">C</option>
         <option value="C++">C++</option>
         <option value="C#">C#</option>
@@ -28,9 +17,10 @@
         <option value="PHP">PHP</option>
         <option value="Ruby">Ruby</option>
         <option value="Python">Python</option>
-        <option value="R">R</option>
-    </select>
+        <option value="R">R</option> No one
 
+    </select>
+</div>
     <span  class="step1 span" id='experienceArea'>Work experience*</span>
 
     <select class="step1 input" type="text" id="experience" style="font-family: 'Times New Roman'">

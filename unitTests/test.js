@@ -463,3 +463,12 @@ describe("checkNameValidation test", () => {
         assert.equal(act, exp);
     });
 });
+
+describe("check arrayToString", () => {
+    it('array [a,b,c,d]', function () {
+        const array = ['a','b','c','d'];
+        const act = testLogic.arrayToString(array);
+        const exp = 'a, b, c, d,';
+        assert.equal(act, exp);
+    });
+});

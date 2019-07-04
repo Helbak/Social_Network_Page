@@ -97,26 +97,54 @@ Logic.prototype.checkListRelation = function (relation) {
     return false;
 };
 Logic.prototype.checkListLanguages = function (language, languages) {
-    for(let i=0; i<languages.length; i++){
-        if(languages[i]===language){
+    for (let i = 0; i < languages.length; i++) {
+        if (languages[i] === language) {
             return true;
         }
     }
     return false;
 };
 Logic.prototype.checkListExperience = function (experience, experiences) {
-    for(let i=0; i<experiences.length; i++){
-        if(experiences[i]===experience){
+    for (let i = 0; i < experiences.length; i++) {
+        if (experiences[i] === experience) {
             return true;
         }
     }
     return false;
 };
 Logic.prototype.checkStringIsEmpty = function (string) {
-    if(string!==""){
+    if (string !== "") {
         return true;
     }
     return false;
 };
-
-
+Logic.prototype.arrayToString = function (array) {
+    let string = '';
+    if (array.length === 0) {
+        return string;
+    }
+    string = array[0];
+    if (array.length === 1) {
+        return string;
+    }
+    for (let i = 1; i < array.length; i++) {
+        string = string + ', ' + array[i];
+    }
+    return string;
+};
+Logic.prototype.checkExistElement = function (array, el) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === el) {
+                return false;
+            }
+        }
+    return true;
+};
+Logic.prototype.checkNoOne = function (array, el) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === 'No one') {
+            return true;
+        }
+    }
+    return false;
+};

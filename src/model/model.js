@@ -14,6 +14,8 @@ function Model() {
     this.countStep2=1;
     this.countStep3=1;
     this.rulesBox=false;
+    this.hisLanguages = [];
+    this.stringLanguages = '';
     this.languages = ['Java', 'C', 'C++', 'C#', 'JavaScript', 'PHP', 'Ruby', 'Matlab', 'Python', 'R', 'Swift'];
     this.experiences = ['0 - 1 years', '1 - 2 years', '2 - 3 years', '3 - 4 years', '4 and more years'];
     this.area = ['usernameArea', 'passwordArea', 'confirmArea', 'phoneArea', 'emailArea', 'nameArea', 'surnameArea', 'genderArea', 'relationArea', 'progrLangArea', 'experienceArea'];
@@ -62,7 +64,7 @@ function Model() {
         "    <span class=\"step1 span\" id='genderArea'>Gender</span>\n" +
         "\n" +
         "    <select class=\"step1 input\" type=\"text\" id=\"gender\" style=\"font-family: 'Times New Roman'\">\n" +
-        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option  value=\"\"></option>\n" +
         "        <option value=\"female\">female</option>\n" +
         "        <option value=\"male\">male</option>\n" +
         "    </select>\n" +
@@ -70,7 +72,7 @@ function Model() {
         "<span class=\"step1 span\" id='relationArea'>Relationship status</span>\n" +
         "<div>\n" +
         "    <select class=\"step1 input\" type=\"text\" id=\"relation\" style=\"font-family: 'Times New Roman'\">\n" +
-        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option  value=\"\"></option>\n" +
         "        <option value=\"divorced\">divorced</option>\n" +
         "        <option value=\"married\">married</option>\n" +
         "        <option value=\"single\">single</option>\n" +
@@ -84,29 +86,18 @@ function Model() {
         "</div>\n" +
         "<div class=\"body__next\">\n" +
         "    <button class=\"next\" id=\"nextButtonFrom2\">Next</button>\n" +
-        "</div>";
+        "</div>\n";
 
     this.stringStep3 = "<div class=\"body__steps\">Step 3 of 3</div>\n" +
         "<div class=\"body__title\">Create an Account</div>\n" +
         "<div class=\"body__step1\">\n" +
         "    <span  class=\"step1 span\" id='progrLangArea'>Programming languages*</span>\n" +
-        "    <!--        <input class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\" list=\"l1\">-->\n" +
-        "    <!--        <datalist id=\"l1\">-->\n" +
-        "    <!--            <option>C</option>-->\n" +
-        "    <!--            <option >C++</option>-->\n" +
-        "    <!--            <option>C#</option>-->\n" +
-        "    <!--            <option>Java</option>-->\n" +
-        "    <!--            <option>JavaScript</option>-->\n" +
-        "    <!--            <option>Matlab</option>-->\n" +
-        "    <!--            <option>PHP</option>-->\n" +
-        "    <!--            <option>Ruby</option>-->\n" +
-        "    <!--            <option>Python</option>-->\n" +
-        "    <!--            <option>R</option>-->\n" +
-        "    <!--            <option>Swift</option>-->\n" +
-        "    <!--        </datalist>-->\n" +
         "\n" +
-        "    <select class=\"step1 input\" type=\"text\" id=\"progrLang\" style=\"font-family: 'Times New Roman'\">\n" +
-        "        <option value=\"\"></option>\n" +
+        "<div class=\"multilist\">\n" +
+        "    <input type=\"text\" class=\"step1 input multileft\" readonly=\"true\" type=\"text\" id=\"progrLangLeft\" style=\"font-family: 'Times New Roman'\">\n" +
+        "    <select  type=\"text\" class=\"step1 input multiright\" id=\"progrLangRight\" style=\"font-family: 'Times New Roman'\">\n" +
+        "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
+        "        <option value=\"No one\">No one</option>\n" +
         "        <option value=\"C\">C</option>\n" +
         "        <option value=\"C++\">C++</option>\n" +
         "        <option value=\"C#\">C#</option>\n" +
@@ -116,11 +107,12 @@ function Model() {
         "        <option value=\"PHP\">PHP</option>\n" +
         "        <option value=\"Ruby\">Ruby</option>\n" +
         "        <option value=\"Python\">Python</option>\n" +
-        "        <option value=\"R\">R</option>\n" +
+        "        <option value=\"R\">R</option> No one\n" +
+        "\n" +
         "    </select>\n" +
-        "    \n" +
+        "</div>\n" +
         "    <span  class=\"step1 span\" id='experienceArea'>Work experience*</span>\n" +
-        "    \n" +
+        "\n" +
         "    <select class=\"step1 input\" type=\"text\" id=\"experience\" style=\"font-family: 'Times New Roman'\">\n" +
         "        <option selected disabled hidden=\"\" value=\"\"></option>\n" +
         "        <option value=\"0-1 years\">0-1 years</option>\n" +
@@ -148,7 +140,6 @@ function Model() {
         "    </div>\n" +
         "</div>\n" +
         "</div>";
-
     this.rules = "<div class=\"body__title\">Rules</div>\n" +
         "<div class=\"body__step1\">\n" +
         "\n" +
@@ -262,6 +253,17 @@ Model.prototype.setCountStep2 = function (countStep2) {
 Model.prototype.setCountStep3 = function (countStep3) {
     return this.countStep3 = countStep3;
 };
-
+Model.prototype.setHisLanguages = function (language) {
+    if(language==='No one'){
+        this.hisLanguages=['No one'];
+        this.stringLanguages='No one'
+        return;
+    }
+    if(this.hisLanguages[0]==='No one'){
+        this.hisLanguages[0]=language;
+        return;
+    }
+      this.hisLanguages[this.hisLanguages.length] = language;
+};
 
 

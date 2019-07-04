@@ -264,18 +264,18 @@ Controller.prototype.functionStep2 = function () {
 };
 Controller.prototype.functionStep3 = function () {
 
-
-
     const indev = document.getElementById('indev');
     indev.innerHTML = this.model.getStep3();
-    $(".chosen-select").chosen({});
-    const progrLang = document.getElementById('progrLang');
+
+
+    const progrLangLeft = document.getElementById('progrLangLeft');
+    const progrLangRight = document.getElementById('progrLangRight');
     const experience = document.getElementById('experience');
     const checkboxRules = document.getElementById('checkboxRules');
     const backButtonFromStep3 = document.getElementById('backButtonFromStep3');
     const registerButton = document.getElementById('registerButton');
 
-    console.log('const progrLang =   '+progrLang.value);
+
 
     registerButton.disabled=true;
     if (
@@ -296,7 +296,7 @@ Controller.prototype.functionStep3 = function () {
         this.logic.checkEmailValidation(this.model.email) === true &&
         this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
         this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
-        this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+        this.model.stringLanguages.length >=1 &&
         this.logic.checkStringIsEmpty(this.model.experience) === true
     ) {
         registerButton.disabled=false;
@@ -306,10 +306,10 @@ Controller.prototype.functionStep3 = function () {
 
     if (this.model.countStep3 > 1) {
 
-        if(this.model.progrLang===''){
+        if(this.model.stringLanguages.length <1){
             this.redDrawer("progrLangArea", "red");
         }
-        if(this.model.progrLang!==''){
+        if(this.model.stringLanguages.length >=1){
             this.redDrawer("progrLangArea", "blue");
         }
         if(this.model.experience===''){
@@ -321,12 +321,29 @@ Controller.prototype.functionStep3 = function () {
     }
     ;
 
-    progrLang.value = this.model.progrLang;
+    progrLangLeft.value = this.model.stringLanguages;
     experience.value = this.model.experience;
     checkboxRules.checked = this.model.rulesBox;
     this.model.setCountStep3(2);
-    progrLang.addEventListener('change', function () {
-            this.model.setProgrLang(progrLang.value);
+
+    progrLangRight.addEventListener('change', function () {
+            const arrayLanguages = this.model.hisLanguages;
+            if(this.logic.checkExistElement(arrayLanguages, progrLangRight.value)===false){
+                progrLangRight.value = '';
+                return;
+            }
+if(progrLangRight.value==='No one'){
+    this.model.setHisLanguages(progrLangRight.value);
+    progrLangLeft.value =this.model.stringLanguages;
+
+}
+        if(progrLangRight.value!=='No one') {
+            this.model.setHisLanguages(progrLangRight.value);
+            const stringLanguages = this.logic.arrayToString(arrayLanguages);
+            this.model.stringLanguages = stringLanguages;
+            progrLangLeft.value = stringLanguages;
+        }
+            progrLangRight.value = '';
             this.redDrawer("progrLangArea", "blue");
             if (
                 this.model.rulesBox === true
@@ -346,21 +363,13 @@ Controller.prototype.functionStep3 = function () {
                 this.logic.checkEmailValidation(this.model.email) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
-                this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                this.model.stringLanguages.length >=1 &&
                 this.logic.checkStringIsEmpty(this.model.experience) === true
             ) {
                 registerButton.disabled=false;
 
             }
             ;
-        }.bind(this),
-        false);
-    progrLang.addEventListener('keyup', function () {
-            if (this.logic.checkListLanguages(progrLang.value, this.model.languages) === false) {
-                progrLang.value = '';
-                this.redDrawer("progrLangArea", "black");
-                this.model.setProgrLang(progrLang.value);
-            }
         }.bind(this),
         false);
 
@@ -385,7 +394,7 @@ Controller.prototype.functionStep3 = function () {
                 this.logic.checkEmailValidation(this.model.email) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
-                this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                this.model.stringLanguages.length >=1 &&
                 this.logic.checkStringIsEmpty(this.model.experience) === true
             ) {
 
@@ -432,7 +441,7 @@ Controller.prototype.functionStep3 = function () {
                     this.logic.checkEmailValidation(this.model.email) === true &&
                     this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                     this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
-                    this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                    this.model.stringLanguages.length >=1 &&
                     this.logic.checkStringIsEmpty(this.model.experience) === true
                 ) {
 
@@ -476,7 +485,7 @@ Controller.prototype.functionStep3 = function () {
                 this.logic.checkEmailValidation(this.model.email) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
                 this.logic.checkPhoneNumberValidation(this.model.phone) === true &&
-                this.logic.checkStringIsEmpty(this.model.progrLang) === true &&
+                this.model.stringLanguages.length >=1 &&
                 this.logic.checkStringIsEmpty(this.model.experience) === true
             ) {
 
@@ -496,7 +505,7 @@ Controller.prototype.functionRules = function () {
         }.bind(this),
         false);
 };
-Controller.prototype.functionResult = function () {
+// Controller.prototype.functionResult = function () {
     // window.open('successedRegistr.html');
     // const indev = document.getElementById('indev');
     // indev.innerHTML = this.model.getResult();
@@ -529,7 +538,7 @@ Controller.prototype.functionResult = function () {
     //         this.init();
     //     }.bind(this),
     //     false);
-};
+// };
 
 Controller.prototype.redDrawer = function (id, color) {
 
